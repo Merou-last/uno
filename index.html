@@ -1,0 +1,392 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Youcef Alpacino | Game Hub</title><style>
+:root{--bg:#0a0d18;--panel:#141a2a;--line:#28324b;--txt:#f3f5ff;--muted:#9ca8c7;--gold:#f4c45e;--violet:#8c6cff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1c2340 0,#0a0d18 55%);color:var(--txt);font-family:system-ui,Arial,sans-serif}header{padding:28px max(20px,calc((100% - 1120px)/2));border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap}h1{margin:0;font-size:clamp(24px,4vw,40px)}h1 span{color:var(--gold)}p{color:var(--muted)}a,.btn{color:#fff;text-decoration:none;background:#272f49;border:1px solid #414c6d;padding:10px 14px;border-radius:12px;display:inline-block;cursor:pointer}main{max-width:1120px;margin:28px auto;padding:0 18px}.hero{background:linear-gradient(120deg,#222b4b,#151a2a);border:1px solid var(--line);border-radius:24px;padding:25px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin:22px 0}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;min-height:175px}.icon{font-size:36px}.card h3{margin:8px 0}.card button,.primary{background:linear-gradient(120deg,#7457ef,#a05eff);border:0;border-radius:11px;padding:11px 16px;color:white;font-weight:700;cursor:pointer}.area{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;margin:20px 0;min-height:180px}.hidden{display:none}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.pill{padding:7px 11px;background:#222b43;border-radius:10px;color:#dfe5ff}.board{display:grid;grid-template-columns:repeat(4,minmax(55px,1fr));gap:8px;margin:15px 0}.tile{padding:14px 4px;text-align:center;background:#202a43;border:1px solid #485678;border-radius:12px;cursor:pointer}.tile:disabled{opacity:.4;cursor:not-allowed}.cardtile{font-size:22px;background:#f7f3e9;color:#222;padding:14px 10px;border-radius:10px;border:2px solid #c9c3b5;cursor:pointer}.cardtile.red{color:#c32f46}.status{padding:12px;background:#0c1120;border:1px solid var(--line);border-radius:12px;margin:10px 0}input,select{background:#0b1020;color:white;border:1px solid #414c6d;border-radius:10px;padding:10px}footer{text-align:center;padding:30px;color:var(--muted)}small{color:var(--muted)}
+
+.u-bar{margin-bottom:10px}.u-opps{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.u-opp{min-width:90px;text-align:center;background:#0c1120;border:1px solid var(--line);border-radius:14px;padding:10px}.u-opp.on{border-color:var(--gold);box-shadow:0 0 0 2px #f4c45e55}.u-n{font-size:28px;font-weight:800}.u-tag{color:var(--gold);font-weight:800}
+.u-table{display:flex;gap:14px;align-items:center;justify-content:center;margin:14px 0}.u-col{display:flex;flex-direction:column;align-items:center;gap:6px}.u-dot{width:26px;height:26px;border-radius:50%;border:2px solid #fff}
+.ucard{width:66px;height:94px;border-radius:12px;border:3px solid #fff;color:#fff;font-family:inherit;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:4px 5px;flex:0 0 auto;cursor:pointer;transition:transform .15s,box-shadow .15s}.ucard i{font-style:normal;font-size:12px;align-self:flex-start;font-weight:700}.ucard i:last-child{align-self:flex-end}.ucard b{font-size:26px;text-shadow:0 2px 3px #0006}
+.c-red{background:#d6334a}.c-yellow{background:#e8b92e;color:#2a2200}.c-green{background:#27a35f}.c-blue{background:#2f6fd0}.c-wild{background:conic-gradient(#d6334a 0 25%,#e8b92e 0 50%,#27a35f 0 75%,#2f6fd0 0)}.c-back{background:#12131c;border-color:#d6334a;color:var(--gold);justify-content:center;gap:4px}.c-back i{align-self:center;font-size:18px}
+.ucard.ok{transform:translateY(-8px);box-shadow:0 0 0 2px var(--gold)}.ucard:disabled{cursor:default}.u-me.on .ucard:not(.ok):not([disabled]){opacity:.5}.u-top{opacity:1!important}
+.u-hand{display:flex;gap:8px;overflow-x:auto;padding:16px 4px 8px;-webkit-overflow-scrolling:touch}.u-me{background:#0c1120;border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:10px}.u-me.on{border-color:var(--gold)}
+.u-pick{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px;background:#1b2340;border-radius:12px;margin:8px 0}.u-cb{border:2px solid #fff;color:#fff;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}.u-cb.c-yellow{color:#2a2200}
+.u-score{margin-top:12px}.u-end{text-align:center;background:#1b2340;border:1px solid var(--gold);border-radius:16px;padding:16px;margin-top:12px}
+@media(max-width:480px){.ucard{width:58px;height:84px}.ucard b{font-size:22px}}
+</style></head><body><header><div><h1><span>YOUCEF</span> ALPACINO</h1><small>مجتمع الألعاب • نسخة تجريبية قابلة للتشغيل محليًا</small></div><nav class="row"><a href="https://discord.gg/sDBjcqcQjK">Discord</a><a href="https://www.tiktok.com/@youcefalpa22?_r=1&_t=ZS-9AwgfxwIywf7">TikTok</a><a href="https://meroulast.online">متجر الشحن</a></nav></header><main><section class="hero"><h2>اختر لعبتك وابدأ التحدي 🎮</h2><p>واجهة عربية متجاوبة. هذه النسخة تشغّل نماذج اللعب داخل المتصفح؛ اللعب عبر الإنترنت بين أجهزة مختلفة والتحقق من عضوية Discord يحتاجان نشر الخادم وربط المصادقة أولًا.</p><div class="row"><span class="pill">Discord Server ID: 1564749301203079422</span><span class="pill">Firebase: youcefalpacino</span></div></section><section class="cards" id="games"></section><section id="play" class="area hidden"><div class="row" style="justify-content:space-between"><h2 id="gameTitle">اللعبة</h2><button class="btn" onclick="closeGame()">إغلاق</button></div><div id="gameBody"></div></section><section class="area"><h2>معلومات مهمة</h2><p>لا تضع Discord Bot Token أو OAuth Client Secret في قالب Blogger. لا تُعدّل قواعد Firestore لتسمح للجميع بالقراءة والكتابة. استخدم خادمًا موثوقًا للتحقق من عضوية السيرفر والتحقق من كل حركة قبل حفظها.</p><a href="FIREBASE_SETUP_AR.md">دليل إعداد Firebase والأمان</a></section></main><footer>Youcef Alpacino © • رابط Discord الرسمي أعلاه</footer><script>
+const games=[['🃏','UNO','uno','لعبة ورق مصغّرة: اسحب ورقة أو العب ورقة مطابقة للون/الرقم.'],['🪵','Jackaroo','jack','نموذج مسار ونرد للتجربة المحلية.'],['🁫','Dominoes','domino','دومينو محلي للاعب واحد ضد سحب القطع.'],['🎲','Ludo','ludo','سباق نرد تجريبي بأربعة أحجار.'],['🕵️','Who Is the Spy?','spy','وزّع الأدوار سرًا على اللاعبين الموجودين في نفس الجهاز.'],['🐺','Loup-Garou','werewolf','اللعبة الأصلية موجودة في ملفات البوت المرفقة.']];document.getElementById('games').innerHTML=games.map(g=>`<article class="card"><div class="icon">${g[0]}</div><h3>${g[1]}</h3><p>${g[3]}</p><button onclick="openGame('${g[2]}','${g[1]}')">فتح اللعبة</button></article>`).join('');const el=id=>document.getElementById(id);function closeGame(){window.__unoTok=0;window.__unoLocalTok=0;el('play').classList.add('hidden')}function openGame(g,n){window.__unoTok=0;window.__unoLocalTok=0;el('play').classList.remove('hidden');el('gameTitle').textContent=n;let b=el('gameBody');if(g==='spy')return spy(b);if(g==='uno')return uno(b);if(g==='ludo'||g==='jack')return dice(b,g);if(g==='domino')return domino(b);b.innerHTML='<p>شغّل بوت Loup-Garou الأصلي حسب الدليل داخل الحزمة.</p>'}function dice(b,g){let pos=[0,0,0,0],turn=0;function draw(){b.innerHTML=`<p>اللاعب الحالي: ${turn+1} • الهدف: 20 خانة</p><div class="board">${pos.map((p,i)=>`<div class="tile">🔵 لاعب ${i+1}<br>${p}/20</div>`).join('')}</div><button class="primary" id="roll">ارمِ النرد 🎲</button><div class="status" id="s">ابدأ اللعب</div>`;el('roll').onclick=()=>{let d=1+Math.floor(Math.random()*6);pos[turn]=Math.min(20,pos[turn]+d);let msg=`اللاعب ${turn+1} رمى ${d} وتقدم إلى ${pos[turn]}.`;if(pos[turn]===20)msg+=` فاز اللاعب ${turn+1}!`;el('s').textContent=msg;turn=(turn+1)%4;if(pos.includes(20)){el('roll').disabled=true;return}setTimeout(draw,900)}}draw()}function spy(b){b.innerHTML='<p>أدخل أسماء اللاعبين مفصولة بفواصل، واختر عدد الجواسيس. مرّر الجهاز لكل لاعب ليكشف دوره ثم أخفِ الشاشة.</p><input id="names" style="width:100%" value="أحمد, محمد, سارة, يوسف"><div class="row" style="margin-top:10px"><label>عدد الجواسيس <select id="spies"><option>1</option><option>2</option></select></label><button class="primary" id="deal">توزيع الأدوار</button></div><div id="spyout" class="status">الأدوار لم توزّع بعد</div>';el('deal').onclick=()=>{let names=el('names').value.split(',').map(x=>x.trim()).filter(Boolean);if(names.length<3){el('spyout').textContent='أدخل 3 لاعبين على الأقل';return}let count=Math.min(+el('spies').value,names.length-1),spyset=new Set();while(spyset.size<count)spyset.add(Math.floor(Math.random()*names.length));let word=['الفضاء','بيتزا','المدرسة','البحر','كرة القدم','المطار'][Math.floor(Math.random()*6)],i=0;function next(){if(i>=names.length){el('spyout').innerHTML='<b>انتهى توزيع الأدوار.</b> ابدأوا النقاش ثم صوّتوا شفهيًا.';return}let who=names[i],is=spyset.has(i);el('spyout').innerHTML=`<h3>مرّر الجهاز إلى: ${who}</h3><button class="primary" id="reveal">اكشف دوري</button>`;el('reveal').onclick=()=>{el('spyout').innerHTML=`<h3>${who}</h3><p>${is?'🕵️ أنت الجاسوس! حاول اكتشاف الكلمة.':'الكلمة السرية: <b>'+word+'</b>'}</p><button class="primary" id="hide">إخفاء وتسليم التالي</button>`;el('hide').onclick=()=>{i++;next()}}}next()}}const FB_CONFIG={apiKey:"AIzaSyCY3lMCom3-NNUK3DuiZbzk-dHwL610WEI",authDomain:"youcefalpacino.firebaseapp.com",projectId:"youcefalpacino",storageBucket:"youcefalpacino.firebasestorage.app",messagingSenderId:"705889175091",appId:"1:705889175091:web:beeb677896a90749654546"};
+async function loadFB(){
+ const B='https://www.gstatic.com/firebasejs/10.12.2/';
+ const m=await Promise.all([import(B+'firebase-app.js'),import(B+'firebase-auth.js'),import(B+'firebase-firestore.js')]);
+ const A=m[0],Au=m[1],F=m[2];
+ const app=A.getApps().length?A.getApp():A.initializeApp(FB_CONFIG);
+ const auth=Au.getAuth(app);
+ if(auth.authStateReady)await auth.authStateReady();
+ if(!auth.currentUser)await Au.signInAnonymously(auth);
+ return{F:F,db:F.getFirestore(app),uid:auth.currentUser.uid};
+}
+function uno(b){
+ b.innerHTML='<p>اختر طريقة اللعب:</p><div class="row"><button class="primary" id="uL">🤖 ضد البوتات</button><button class="primary" id="uO">🌐 أونلاين مع الأصدقاء</button></div>';
+ b.querySelector('#uL').onclick=()=>unoLocal(b);
+ b.querySelector('#uO').onclick=()=>unoOnline(b);
+}
+function unoOnline(b){
+const tok=Date.now()+Math.random();window.__unoTok=tok;
+const COLORS=['red','yellow','green','blue'],CN={red:'أحمر',yellow:'أصفر',green:'أخضر',blue:'أزرق'};
+const SYM={skip:'⊘',rev:'⇄',d2:'+2',wild:'★',w4:'+4'};
+const WIN=200,MAXP=4;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let X=null,code='',room=null,hand=[],members=[],H=null,unsubs=[],queue=Promise.resolve(),pick=null,said=false,hostLoading=false;
+const alive=()=>window.__unoTok===tok;
+const q=s=>b.querySelector(s);
+function stop(){unsubs.forEach(u=>{try{u()}catch(e){}});unsubs=[]}
+function leave(){stop();try{localStorage.removeItem('unoRoom')}catch(e){}room=null;hand=[];members=[];H=null;code='';uno(b)}
+function lab(c){return SYM[c.v]||c.v}
+function isNum(c){return c.c&&/^\d$/.test(c.v)}
+function pts(c){return isNum(c)?+c.v:(c.c?20:50)}
+function mod(x,n){return((x%n)+n)%n}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=a[i];a[i]=a[j];a[j]=t}return a}
+function buildDeck(){let id=0;const d=[];const mk=(c,v)=>d.push({id:++id,c:c,v:v});COLORS.forEach(c=>{mk(c,'0');for(let i=1;i<=9;i++){mk(c,''+i);mk(c,''+i)}['skip','rev','d2'].forEach(v=>{mk(c,v);mk(c,v)})});for(let i=0;i<4;i++){mk(null,'wild');mk(null,'w4')}return d}
+function cardHTML(c,cls,attr){const k=c.c||'wild';return '<button class="ucard c-'+k+(cls?' '+cls:'')+'" '+(attr||'')+' aria-label="'+(c.c?CN[c.c]+' ':'')+esc(lab(c))+'"><i>'+esc(lab(c))+'</i><b>'+esc(lab(c))+'</b><i>'+esc(lab(c))+'</i></button>'}
+function errText(e){const c=(e&&e.code)||'';if(/operation-not-allowed|admin-restricted/.test(c))return 'فعّل Anonymous في Firebase: Authentication ← Sign-in method.';if(/permission-denied/.test(c))return 'القواعد غير منشورة أو ترفض العملية. انشر firestore.rules الجديد.';if(/network|unavailable/.test(c))return 'مشكلة اتصال بالإنترنت.';return 'خطأ: '+((e&&(e.code||e.message))||e)}
+
+/* ---------- محرك المضيف (الحَكَم) ---------- */
+function hDraw(u,n){let g=0;for(let i=0;i<n;i++){if(!H.deck.length){const t=H.disc.pop();H.deck=shuffle(H.disc);H.disc=[t]}if(!H.deck.length)break;H.hands[u].push(H.deck.pop());g++}return g}
+function hPlayable(c,h){if(c.v==='wild')return true;if(c.v==='w4')return !h.some(x=>x.c===H.color);return c.c===H.color||c.v===H.disc[H.disc.length-1].v}
+function hAdv(s){H.turn=mod(H.turn+H.dir*s,H.order.length);H.drawn=null}
+function hRound(){
+ H.round++;H.deck=shuffle(buildDeck());H.disc=[];H.hands={};
+ H.order.forEach(u=>{H.hands[u]=[]});H.order.forEach(u=>hDraw(u,7));
+ let c;do{c=H.deck.pop();if(!isNum(c)){H.deck.unshift(c);c=null}}while(!c);
+ H.disc.push(c);H.color=c.c;H.dir=1;H.turn=(H.round-1)%H.order.length;H.drawn=null;H.status='playing';H.winner=null;H.gained=0;
+ H.msg='بدأت الجولة '+H.round+' — الدور على '+H.names[H.order[H.turn]];
+}
+function pub(){const t=H.disc[H.disc.length-1],counts={};H.order.forEach(u=>{counts[u]=H.hands[u].length});return{status:H.status,order:H.order,names:H.names,counts:counts,top:t,color:H.color,dir:H.dir,turn:H.order[H.turn],deckN:H.deck.length,drawn:H.drawn,msg:H.msg,round:H.round,scores:H.scores,winner:H.winner,gained:H.gained,matchWinner:H.matchWinner,v:Date.now()}}
+async function commit(dirty){
+ const F=X.F,db=X.db,bt=F.writeBatch(db);
+ bt.update(F.doc(db,'unoRooms',code),pub());
+ dirty.forEach(u=>bt.set(F.doc(db,'unoRooms',code,'hands',u),{cards:H.hands[u]}));
+ bt.set(F.doc(db,'unoRooms',code,'private','host'),H);
+ await bt.commit();
+}
+function doAct(a){
+ if(!H||H.status!=='playing')return;
+ const n=H.order.length,u=H.order[H.turn];
+ if(a.uid!==u)return;
+ const h=H.hands[u],nm=H.names[u],dirty=[u];
+ if(a.type==='draw'){
+  if(H.drawn!==null)return;
+  const g=hDraw(u,1);
+  if(!g){H.msg=nm+': لا توجد بطاقات للسحب';hAdv(1);return commit(dirty)}
+  const nc=h[h.length-1];
+  if(hPlayable(nc,h)){H.drawn=nc.id;H.msg=nm+' سحب بطاقة'}else{H.msg=nm+' سحب بطاقة وتمرّر';hAdv(1)}
+  return commit(dirty);
+ }
+ if(a.type==='pass'){if(H.drawn===null)return;H.msg=nm+' مرّر دوره';hAdv(1);return commit(dirty)}
+ if(a.type==='play'){
+  const card=h.find(c=>c.id===a.cardId);
+  if(!card)return;
+  if(H.drawn!==null&&card.id!==H.drawn)return;
+  if(!hPlayable(card,h))return;
+  if(!card.c&&COLORS.indexOf(a.color)<0)return;
+  h.splice(h.indexOf(card),1);H.disc.push(card);H.color=card.c||a.color;H.drawn=null;
+  let txt=nm+' لعب '+(card.c?CN[card.c]+' ':'')+lab(card);
+  if(!card.c)txt+=' واختار '+CN[H.color];
+  let steps=1;const nx=H.order[mod(H.turn+H.dir,n)];
+  if(card.v==='skip'){steps=2;txt+=' — تخطّى '+H.names[nx]}
+  else if(card.v==='rev'){H.dir*=-1;if(n===2)steps=2;txt+=' — انعكس الاتجاه'}
+  else if(card.v==='d2'){const g=hDraw(nx,2);dirty.push(nx);steps=2;txt+=' — '+H.names[nx]+' سحب '+g}
+  else if(card.v==='w4'){const g=hDraw(nx,4);dirty.push(nx);steps=2;txt+=' — '+H.names[nx]+' سحب '+g}
+  if(h.length===1){if(a.uno)txt+=' — UNO!';else{hDraw(u,2);txt+=' — نسي UNO! عقوبة سحب بطاقتين'}}
+  H.msg=txt;
+  if(!h.length){
+   let sum=0;H.order.forEach(x=>{if(x!==u)H.hands[x].forEach(c=>{sum+=pts(c)})});
+   H.scores[u]+=sum;H.status='over';H.winner=u;H.gained=sum;
+   if(H.scores[u]>=WIN)H.matchWinner=u;
+   H.msg=nm+' أنهى أوراقه وفاز بالجولة (+'+sum+')';
+   return commit(dirty);
+  }
+  H.turn=mod(H.turn+H.dir*steps,n);
+  return commit(dirty);
+ }
+}
+function hostRun(a){queue=queue.then(()=>doAct(a)).catch(e=>{console.error(e)});return queue}
+function startGame(){
+ const ms=members.slice().sort((x,y)=>x.joinedAt-y.joinedAt);
+ const host=room.host,order=[host].concat(ms.map(m=>m.id).filter(i=>i!==host)).slice(0,MAXP);
+ if(order.length<2)return;
+ const names={};order.forEach(u=>{const m=members.find(x=>x.id===u);names[u]=m?m.name:'لاعب'});
+ const scores={};order.forEach(u=>{scores[u]=0});
+ H={order:order,names:names,scores:scores,round:0,status:'playing',winner:null,gained:0,matchWinner:null,dir:1,drawn:null,msg:'',deck:[],disc:[],hands:{},turn:0,color:'red'};
+ hRound();
+ queue=queue.then(()=>commit(order)).catch(e=>{console.error(e)});
+}
+function nextRound(){
+ if(!H||H.status!=='over')return;
+ if(H.matchWinner){H.round=0;H.matchWinner=null;H.order.forEach(u=>{H.scores[u]=0})}
+ hRound();
+ queue=queue.then(()=>commit(H.order)).catch(e=>{console.error(e)});
+}
+function hostSkip(){
+ if(!H||H.status!=='playing')return;
+ const u=H.order[H.turn];H.msg='تخطّى المضيف دور '+H.names[u];hAdv(1);
+ queue=queue.then(()=>commit([])).catch(e=>{console.error(e)});
+}
+
+/* ---------- اتصال ---------- */
+async function send(type,extra){
+ const a={uid:X.uid,type:type,cardId:extra&&extra.cardId!=null?extra.cardId:null,color:(extra&&extra.color)||null,uno:!!said,t:Date.now()};
+ if(type==='play')said=false;
+ if(room.host===X.uid)hostRun(a);
+ else{try{await X.F.addDoc(X.F.collection(X.db,'unoRooms',code,'actions'),a)}catch(e){alert(errText(e))}}
+}
+function myTurn(){return room&&room.status==='playing'&&room.turn===X.uid}
+function playable(c){if(c.v==='wild')return true;if(c.v==='w4')return !hand.some(x=>x.c===room.color);return c.c===room.color||c.v===room.top.v}
+function onCard(id){
+ if(!myTurn())return;
+ const c=hand.find(x=>x.id===id);if(!c)return;
+ if(room.drawn!==null&&room.drawn!==c.id){flash('بعد السحب العب البطاقة المسحوبة فقط أو مرّر.');return}
+ if(!playable(c)){flash(c.v==='w4'?'+4 لا تُلعب إلا إذا لم تملك لون الورقة الحالية.':'هذه البطاقة غير مطابقة.');return}
+ if(!c.c){pick=c.id;render();return}
+ pick=null;send('play',{cardId:c.id});
+}
+function flash(t){const m=q('#oMsg');if(m)m.textContent=t}
+function enter(){
+ const F=X.F,db=X.db,uid=X.uid;
+ try{localStorage.setItem('unoRoom',code)}catch(e){}
+ unsubs.push(F.onSnapshot(F.doc(db,'unoRooms',code),async s=>{
+  if(!s.exists()){room={status:'closed'};render();return}
+  room=s.data();
+  if(room.host===uid&&!H&&!hostLoading&&room.status!=='lobby'){
+   hostLoading=true;
+   try{const p=await F.getDoc(F.doc(db,'unoRooms',code,'private','host'));if(p.exists())H=p.data()}catch(e){console.error(e)}
+   hostLoading=false;
+  }
+  render();
+ },e=>{room={status:'closed'};render()}));
+ unsubs.push(F.onSnapshot(F.collection(db,'unoRooms',code,'members'),s=>{members=s.docs.map(d=>Object.assign({id:d.id},d.data()));render()}));
+ unsubs.push(F.onSnapshot(F.doc(db,'unoRooms',code,'hands',uid),s=>{hand=s.exists()?(s.data().cards||[]):[];render()},e=>{}));
+ unsubs.push(F.onSnapshot(F.collection(db,'unoRooms',code,'actions'),s=>{
+  if(!room||room.host!==uid)return;
+  const adds=s.docChanges().filter(c=>c.type==='added').map(c=>({ref:c.doc.ref,d:c.doc.data()})).sort((x,y)=>(x.d.t||0)-(y.d.t||0));
+  adds.forEach(x=>{queue=queue.then(async()=>{await doAct(x.d);try{await F.deleteDoc(x.ref)}catch(e){}}).catch(e=>{console.error(e)})});
+ },e=>{}));
+ render();
+}
+function genCode(){const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<5;i++)s+=A[Math.floor(Math.random()*A.length)];return s}
+async function createRoom(name){
+ X=await X_();const F=X.F,db=X.db;let ok=false;
+ for(let i=0;i<6&&!ok;i++){
+  const c=genCode(),ref=F.doc(db,'unoRooms',c);
+  const s=await F.getDoc(ref);if(s.exists())continue;
+  await F.setDoc(ref,{host:X.uid,hostName:name,status:'lobby',created:Date.now()});code=c;ok=true;
+ }
+ if(!ok)throw new Error('تعذّر إنشاء كود');
+ await F.setDoc(F.doc(db,'unoRooms',code,'members',X.uid),{name:name,joinedAt:Date.now()});
+ H=null;enter();
+}
+async function joinRoom(c,name){
+ X=await X_();const F=X.F,db=X.db;c=c.trim().toUpperCase();
+ const s=await F.getDoc(F.doc(db,'unoRooms',c));
+ if(!s.exists())throw new Error('الغرفة غير موجودة');
+ const r=s.data(),mine=await F.getDoc(F.doc(db,'unoRooms',c,'members',X.uid));
+ if(!mine.exists()){
+  if(r.status!=='lobby')throw new Error('بدأت اللعبة في هذه الغرفة');
+  const all=await F.getDocs(F.collection(db,'unoRooms',c,'members'));
+  if(all.size>=MAXP)throw new Error('الغرفة ممتلئة (4 لاعبين)');
+  await F.setDoc(F.doc(db,'unoRooms',c,'members',X.uid),{name:name,joinedAt:Date.now()});
+ }
+ code=c;H=null;enter();
+}
+async function resumeRoom(c){X=await X_();code=c;H=null;enter()}
+async function X_(){return X||await loadFB()}
+
+/* ---------- الواجهة ---------- */
+function entry(msg){
+ if(!alive())return;
+ let nm='',saved='';try{nm=localStorage.getItem('unoName')||'';saved=localStorage.getItem('unoRoom')||''}catch(e){}
+ b.innerHTML='<div class="u-wrap"><button class="btn" id="oBack">⬅ رجوع</button><h3>🌐 UNO أونلاين</h3><p>اكتب اسمك، ثم أنشئ غرفة وأرسل الكود لأصدقائك (حتى 4 لاعبين).</p>'
+ +'<input id="oName" maxlength="20" placeholder="اسمك" value="'+esc(nm)+'" style="width:100%"><div class="row" style="margin:10px 0"><button class="primary" id="oCreate">➕ إنشاء غرفة</button></div>'
+ +'<div class="row"><input id="oCode" maxlength="5" placeholder="كود الغرفة" style="width:140px;text-transform:uppercase"><button class="primary" id="oJoin">دخول</button></div>'
+ +(saved?'<div class="row" style="margin-top:10px"><button class="btn" id="oResume">↩ العودة للغرفة '+esc(saved)+'</button></div>':'')
+ +'<div class="status" id="oErr" style="display:'+(msg?'block':'none')+'">'+esc(msg||'')+'</div></div>';
+ const name=()=>{const v=q('#oName').value.trim().slice(0,20);try{localStorage.setItem('unoName',v)}catch(e){}return v};
+ const run=async f=>{q('#oErr').style.display='block';q('#oErr').textContent='جارٍ الاتصال...';try{await f()}catch(e){if(alive())entry(errText(e))}};
+ q('#oBack').onclick=()=>{stop();uno(b)};
+ q('#oCreate').onclick=()=>{const n=name();if(!n){entry('اكتب اسمك أولًا');return}run(()=>createRoom(n))};
+ q('#oJoin').onclick=()=>{const n=name(),c=q('#oCode').value;if(!n||c.trim().length<5){entry('اكتب اسمك وكود الغرفة (5 أحرف)');return}run(()=>joinRoom(c,n))};
+ const rs=q('#oResume');if(rs)rs.onclick=()=>run(()=>resumeRoom(saved));
+}
+function render(){
+ if(!alive())return;
+ if(!room){b.innerHTML='<div class="status">جارٍ تحميل الغرفة...</div>';return}
+ if(room.status==='closed'){b.innerHTML='<div class="u-wrap"><div class="status">أُغلقت الغرفة أو لم تعد متاحة.</div><button class="primary" id="oLeave">رجوع</button></div>';q('#oLeave').onclick=leave;return}
+ const isHost=room.host===X.uid;
+ if(room.status==='lobby'){
+  const ms=members.slice().sort((x,y)=>x.joinedAt-y.joinedAt);
+  b.innerHTML='<div class="u-wrap"><h3>غرفة الانتظار</h3><div class="u-end" style="margin:0 0 12px"><small>كود الغرفة — أرسله لأصدقائك</small><div style="font-size:40px;letter-spacing:8px;font-weight:800;color:var(--gold)" dir="ltr">'+esc(code)+'</div><button class="btn" id="oCopy">نسخ الكود</button></div>'
+  +'<b>اللاعبون ('+ms.length+'/'+MAXP+')</b><div class="row" style="margin:8px 0">'+ms.map(m=>'<span class="pill">'+(m.id===room.host?'👑 ':'🙂 ')+esc(m.name)+(m.id===X.uid?' (أنت)':'')+'</span>').join('')+'</div>'
+  +(isHost?'<div class="row"><button class="primary" id="oStart"'+(ms.length<2?' disabled':'')+'>▶ ابدأ اللعبة</button><button class="btn" id="oClose">إغلاق الغرفة</button></div>'+(ms.length<2?'<small>تحتاج لاعبًا واحدًا على الأقل ليدخل.</small>':'')
+   :'<div class="status">بانتظار المضيف ليبدأ اللعبة...</div><button class="btn" id="oLeave">مغادرة</button>')+'</div>';
+  const cp=q('#oCopy');if(cp)cp.onclick=()=>{try{navigator.clipboard.writeText(code);cp.textContent='تم النسخ ✅'}catch(e){}};
+  const st=q('#oStart');if(st)st.onclick=startGame;
+  const cl=q('#oClose');if(cl)cl.onclick=async()=>{try{await X.F.updateDoc(X.F.doc(X.db,'unoRooms',code),{status:'closed'})}catch(e){}leave()};
+  const lv=q('#oLeave');if(lv)lv.onclick=async()=>{try{await X.F.deleteDoc(X.F.doc(X.db,'unoRooms',code,'members',X.uid))}catch(e){}leave()};
+  return;
+ }
+ const me=myTurn(),over=room.status==='over',nm=u=>esc(room.names[u]||'لاعب');
+ const mine=hand.slice().sort((a,z)=>(COLORS.indexOf(a.c)<0?9:COLORS.indexOf(a.c))-(COLORS.indexOf(z.c)<0?9:COLORS.indexOf(z.c))||(a.v>z.v?1:-1));
+ let h='<div class="u-wrap"><div class="row u-bar"><span class="pill">غرفة '+esc(code)+'</span><span class="pill">الجولة '+room.round+'</span><span class="pill">الاتجاه '+(room.dir===1?'↻':'↺')+'</span><button class="btn" id="oLeave">خروج</button></div>';
+ h+='<div class="u-opps">'+room.order.filter(u=>u!==X.uid).map(u=>{const n=room.counts[u];return'<div class="u-opp'+(room.turn===u&&!over?' on':'')+'"><div>'+nm(u)+'</div><div class="u-n">'+n+'</div><small>بطاقة</small>'+(n===1?'<div class="u-tag">UNO!</div>':'')+'</div>'}).join('')+'</div>';
+ h+='<div class="u-table"><button class="ucard c-back" id="oDraw"'+(me&&room.drawn===null?'':' disabled')+' aria-label="اسحب"><i>UNO</i><small>سحب ('+room.deckN+')</small></button>'+cardHTML(room.top,'u-top','disabled')+'<div class="u-col"><span class="u-dot c-'+room.color+'"></span><small>اللون: '+CN[room.color]+'</small></div></div>';
+ h+='<div class="status" id="oMsg">'+esc(room.msg||'')+'</div>';
+ if(pick!==null&&me)h+='<div class="u-pick"><b>اختر اللون:</b> '+COLORS.map(c=>'<button class="u-cb c-'+c+'" data-col="'+c+'">'+CN[c]+'</button>').join('')+'</div>';
+ h+='<div class="u-me'+(me?' on':'')+'"><div class="row" style="justify-content:space-between"><b>أوراقك ('+hand.length+')</b><span>'+(over?'':(me?'دورك الآن ✅':'دور '+nm(room.turn)))+'</span></div><div class="u-hand">'+mine.map(c=>{const ok=me&&(room.drawn===null||c.id===room.drawn)&&playable(c);return cardHTML(c,ok?'ok':'',(me?'':'disabled ')+'data-id="'+c.id+'"')}).join('')+'</div>'
+ +'<div class="row" style="margin-top:10px"><button class="primary" id="oUno"'+(over?' disabled':'')+'>'+(said?'✅ UNO! جاهز':'UNO!')+'</button><button class="btn" id="oPass"'+(me&&room.drawn!==null?'':' disabled')+'>تمرير</button>'+(isHost&&!over&&!me?'<button class="btn" id="oSkip">تخطي دور المنقطع</button>':'')+'</div><small>اضغط UNO! قبل لعب بطاقتك قبل الأخيرة وإلا تسحب بطاقتين.</small></div>';
+ h+='<div class="u-score"><b>النقاط (الهدف '+WIN+')</b><div class="row">'+room.order.map(u=>'<span class="pill">'+nm(u)+': '+room.scores[u]+'</span>').join('')+'</div></div>';
+ if(over){const mw=room.matchWinner;h+='<div class="u-end"><h2>'+(room.winner===X.uid?'فزت في الجولة! 🏆':'فاز '+nm(room.winner)+' بالجولة')+'</h2><p>+'+room.gained+' نقطة</p>'+(mw?'<h3>'+(mw===X.uid?'🎉 أنت بطل المباراة!':'بطل المباراة: '+nm(mw))+'</h3>':'')+(isHost?'<button class="primary" id="oNext">'+(mw?'مباراة جديدة':'الجولة التالية')+'</button>':'<small>بانتظار المضيف...</small>')+'</div>'}
+ h+='</div>';
+ b.innerHTML=h;
+ q('#oLeave').onclick=leave;
+ q('#oDraw').onclick=()=>{if(myTurn()&&room.drawn===null)send('draw')};
+ q('#oPass').onclick=()=>{if(myTurn()&&room.drawn!==null)send('pass')};
+ q('#oUno').onclick=()=>{said=!said;render()};
+ const sk=q('#oSkip');if(sk)sk.onclick=hostSkip;
+ const nx=q('#oNext');if(nx)nx.onclick=nextRound;
+ b.querySelectorAll('[data-id]').forEach(x=>x.onclick=()=>onCard(+x.dataset.id));
+ b.querySelectorAll('[data-col]').forEach(x=>x.onclick=()=>{const id=pick;pick=null;send('play',{cardId:id,color:x.dataset.col})});
+}
+entry();
+}
+function unoLocal(b){
+const myTok=window.__unoLocalTok=Math.random();
+const COLORS=['red','yellow','green','blue'],CN={red:'أحمر',yellow:'أصفر',green:'أخضر',blue:'أزرق'};
+const SYM={skip:'⊘',rev:'⇄',d2:'+2',wild:'★',w4:'+4'};
+const WIN_SCORE=200;
+let nPlayers=3,total=[0,0,0,0],S=null,uid=0,timer=null;
+function mk(c,v){return{id:++uid,c:c,v:v}}
+function buildDeck(){const d=[];COLORS.forEach(c=>{d.push(mk(c,'0'));for(let i=1;i<=9;i++){d.push(mk(c,''+i));d.push(mk(c,''+i))}['skip','rev','d2'].forEach(v=>{d.push(mk(c,v));d.push(mk(c,v))})});for(let i=0;i<4;i++){d.push(mk(null,'wild'));d.push(mk(null,'w4'))}return d}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function pname(i){return i===0?'أنت':'بوت '+i}
+function isNum(c){return c.c&&/^\d$/.test(c.v)}
+function pts(c){return isNum(c)?+c.v:(c.c?20:50)}
+function lab(c){return SYM[c.v]||c.v}
+function mod(x,n){return((x%n)+n)%n}
+function nextIdx(p,steps){return mod(p+S.dir*(steps||1),nPlayers)}
+function top(){return S.disc[S.disc.length-1]}
+function draw(p,n){let got=0;for(let i=0;i<n;i++){if(!S.deck.length){const t=S.disc.pop();S.deck=shuffle(S.disc);S.disc=[t]}if(!S.deck.length)break;S.hands[p].push(S.deck.pop());got++}return got}
+function canPlay(c,hand){if(c.v==='wild')return true;if(c.v==='w4')return !hand.some(x=>x.c===S.color);return c.c===S.color||c.v===top().v}
+function newRound(){
+ if(timer){clearTimeout(timer);timer=null}
+ const deck=shuffle(buildDeck());
+ S={deck:deck,disc:[],hands:[],turn:0,dir:1,color:null,drawn:null,said:false,over:false,busy:false,pick:null,msg:'ابدأ اللعب! اختر بطاقة مطابقة للون أو الرقم.',winner:-1,gained:0,round:(S?S.round:0)+1};
+ for(let i=0;i<nPlayers;i++)S.hands.push([]);
+ for(let i=0;i<nPlayers;i++)draw(i,7);
+ let c;do{c=S.deck.pop();if(!isNum(c)){S.deck.unshift(c);c=null}}while(!c);
+ S.disc.push(c);S.color=c.c;
+ S.turn=(S.round-1)%nPlayers;
+ render();
+ if(S.turn!==0)botStep();
+}
+function newMatch(){total=[0,0,0,0];S=null;newRound()}
+function advance(steps){S.turn=nextIdx(S.turn,steps||1);S.drawn=null}
+function finish(p){
+ let sum=0;S.hands.forEach((h,i)=>{if(i!==p)h.forEach(c=>sum+=pts(c))});
+ total[p]+=sum;S.over=true;S.winner=p;S.gained=sum;S.busy=false;
+ S.msg=(p===0?'🏆 فزت بالجولة!':'انتهت الجولة، فاز '+pname(p))+' (+'+sum+' نقطة)';
+}
+function play(p,card,color){
+ const h=S.hands[p];h.splice(h.indexOf(card),1);S.disc.push(card);
+ S.color=card.c||color;S.drawn=null;
+ let txt=pname(p)+' لعب '+(card.c?CN[card.c]+' ':'')+lab(card);
+ if(!card.c)txt+=' واختار '+CN[S.color];
+ let steps=1;const nx=nextIdx(p);
+ if(card.v==='skip'){steps=2;txt+=' — تخطّى '+pname(nx)}
+ else if(card.v==='rev'){S.dir*=-1;if(nPlayers===2){steps=2}txt+=' — انعكس الاتجاه'}
+ else if(card.v==='d2'){const g=draw(nx,2);steps=2;txt+=' — '+pname(nx)+' سحب '+g}
+ else if(card.v==='w4'){const g=draw(nx,4);steps=2;txt+=' — '+pname(nx)+' سحب '+g}
+ if(p===0&&h.length===1&&!S.said){draw(0,2);txt+=' — نسيت UNO! عقوبة: سحب بطاقتين'}
+ if(p===0)S.said=false;
+ S.msg=txt;
+ if(!h.length){finish(p);return}
+ S.turn=mod(p+S.dir*steps,nPlayers);
+}
+function bestColor(hand){const cnt={red:0,yellow:0,green:0,blue:0};hand.forEach(c=>{if(c.c)cnt[c.c]++});let best=COLORS[Math.floor(Math.random()*4)],m=0;COLORS.forEach(c=>{if(cnt[c]>m){m=cnt[c];best=c}});return best}
+function botPick(p,opts){
+ const nxLen=S.hands[nextIdx(p)].length;
+ const plain=opts.filter(x=>x.c);let pool=plain.length?plain:opts;
+ if(nxLen<=2){const act=pool.filter(x=>x.v==='skip'||x.v==='d2'||x.v==='rev'||x.v==='w4');if(act.length)return act[0]}
+ const cnt={};S.hands[p].forEach(x=>{if(x.c)cnt[x.c]=(cnt[x.c]||0)+1});
+ return pool.slice().sort((a,z)=>((cnt[z.c]||0)*3+pts(z))-((cnt[a.c]||0)*3+pts(a)))[0];
+}
+function botStep(){
+ if(S.over)return;
+ if(S.turn===0){S.busy=false;render();return}
+ S.busy=true;render();
+ timer=setTimeout(()=>{
+  timer=null;if(S.over)return;
+  const p=S.turn,hand=S.hands[p];
+  let opts=hand.filter(c=>canPlay(c,hand));
+  if(!opts.length){
+   const g=draw(p,1);const nc=hand[hand.length-1];
+   if(g&&canPlay(nc,hand)){opts=[nc]}
+   else{S.msg=pname(p)+' سحب بطاقة وتمرّر';advance();botStep();return}
+  }
+  const card=botPick(p,opts);
+  const col=card.c?null:bestColor(hand.filter(x=>x!==card));
+  play(p,card,col);
+  if(S.over){render();return}
+  if(S.hands[p].length===1)S.msg+=' — UNO!';
+  botStep();
+ },950);
+}
+function humanPlay(id,color){
+ if(S.over||S.busy||S.turn!==0)return;
+ const hand=S.hands[0],card=hand.find(c=>c.id===id);if(!card)return;
+ if(S.drawn!==null&&card.id!==S.drawn){S.msg='بعد السحب يمكنك لعب البطاقة المسحوبة فقط أو التمرير.';render();return}
+ if(!canPlay(card,hand)){S.msg=card.v==='w4'?'+4 لا تُلعب إلا إذا لم تملك لون الورقة الحالية ('+CN[S.color]+').':'هذه البطاقة غير مطابقة.';render();return}
+ if(!card.c&&!color){S.pick=card.id;render();return}
+ S.pick=null;play(0,card,color);
+ if(S.over){render();return}
+ botStep();
+}
+function humanDraw(){
+ if(S.over||S.busy||S.turn!==0||S.drawn!==null)return;
+ const g=draw(0,1);
+ if(!g){S.msg='لا توجد بطاقات للسحب، تم التمرير.';advance();botStep();return}
+ const nc=S.hands[0][S.hands[0].length-1];
+ if(canPlay(nc,S.hands[0])){S.drawn=nc.id;S.msg='سحبت بطاقة قابلة للعب. العبها أو اضغط «تمرير».';render()}
+ else{S.msg='سحبت بطاقة غير قابلة للعب — تم التمرير.';advance();botStep()}
+}
+function humanPass(){if(S.over||S.busy||S.turn!==0||S.drawn===null)return;S.msg='مرّرت دورك.';advance();botStep()}
+function cardHTML(c,cls,attr){const k=c.c||'wild';return '<button class="ucard c-'+k+(cls?' '+cls:'')+'" '+(attr||'')+' aria-label="'+(c.c?CN[c.c]+' ':'')+lab(c)+'"><i>'+lab(c)+'</i><b>'+lab(c)+'</b><i>'+lab(c)+'</i></button>'}
+function render(){
+ if(window.__unoLocalTok!==myTok)return;
+ const myTurn=S.turn===0&&!S.over&&!S.busy;
+ let h='<div class="u-wrap">';
+ h+='<div class="row u-bar"><label>عدد اللاعبين <select id="uN">'+[2,3,4].map(n=>'<option'+(n===nPlayers?' selected':'')+'>'+n+'</option>').join('')+'</select></label><button class="btn" id="uNew">مباراة جديدة</button><span class="pill">الجولة '+S.round+'</span><span class="pill">الاتجاه '+(S.dir===1?'↻':'↺')+'</span></div>';
+ h+='<div class="u-opps">';
+ for(let i=1;i<nPlayers;i++){const n=S.hands[i].length;h+='<div class="u-opp'+(S.turn===i&&!S.over?' on':'')+'"><div>🤖 '+pname(i)+'</div><div class="u-n">'+n+'</div><small>بطاقة</small>'+(n===1?'<div class="u-tag">UNO!</div>':'')+'</div>'}
+ h+='</div>';
+ h+='<div class="u-table"><button class="ucard c-back" id="uDraw"'+(myTurn&&S.drawn===null?'':' disabled')+' aria-label="اسحب"><i>UNO</i><small>سحب ('+S.deck.length+')</small></button>';
+ h+=cardHTML(top(),'u-top','disabled');
+ h+='<div class="u-col"><span class="u-dot c-'+S.color+'"></span><small>اللون: '+CN[S.color]+'</small></div></div>';
+ h+='<div class="status" id="uMsg">'+S.msg+'</div>';
+ if(S.pick!==null){h+='<div class="u-pick"><b>اختر اللون:</b> '+COLORS.map(c=>'<button class="u-cb c-'+c+'" data-col="'+c+'">'+CN[c]+'</button>').join('')+'</div>'}
+ const me=S.hands[0].slice().sort((a,z)=>(COLORS.indexOf(a.c)<0?9:COLORS.indexOf(a.c))-(COLORS.indexOf(z.c)<0?9:COLORS.indexOf(z.c))||(a.v>z.v?1:-1));
+ h+='<div class="u-me'+(myTurn?' on':'')+'"><div class="row" style="justify-content:space-between"><b>أوراقك ('+me.length+')</b><span>'+(S.over?'':(myTurn?'دورك الآن ✅':'انتظر...'))+'</span></div><div class="u-hand">'+me.map(c=>{const ok=myTurn&&(S.drawn===null||c.id===S.drawn)&&canPlay(c,me);return cardHTML(c,ok?'ok':'',(myTurn?'':'disabled ')+'data-id="'+c.id+'"')}).join('')+'</div>';
+ h+='<div class="row" style="margin-top:10px"><button class="primary" id="uUno"'+(S.over?' disabled':'')+'>'+(S.said?'✅ UNO! جاهز':'UNO!')+'</button><button class="btn" id="uPass"'+(myTurn&&S.drawn!==null?'':' disabled')+'>تمرير</button></div><small>اضغط UNO! قبل لعب بطاقتك قبل الأخيرة وإلا تسحب بطاقتين.</small></div>';
+ h+='<div class="u-score"><b>النقاط (الهدف '+WIN_SCORE+')</b><div class="row">'+Array.from({length:nPlayers},(_,i)=>'<span class="pill">'+pname(i)+': '+total[i]+'</span>').join('')+'</div></div>';
+ if(S.over){const mw=total.findIndex((t,i)=>i<nPlayers&&t>=WIN_SCORE);h+='<div class="u-end"><h2>'+(S.winner===0?'فزت في الجولة! 🏆':'فاز '+pname(S.winner)+' بالجولة')+'</h2><p>+'+S.gained+' نقطة</p>'+(mw>=0?'<h3>'+(mw===0?'🎉 أنت بطل المباراة!':'بطل المباراة: '+pname(mw))+'</h3><button class="primary" id="uAgain">مباراة جديدة</button>':'<button class="primary" id="uAgain">الجولة التالية</button>')+'</div>'}
+ h+='</div>';
+ b.innerHTML=h;
+ const q=s=>b.querySelector(s);
+ q('#uN').onchange=e=>{nPlayers=+e.target.value;newMatch()};
+ q('#uNew').onclick=newMatch;
+ q('#uDraw').onclick=humanDraw;
+ q('#uPass').onclick=humanPass;
+ q('#uUno').onclick=()=>{if(!S.over){S.said=!S.said;render()}};
+ b.querySelectorAll('[data-id]').forEach(x=>x.onclick=()=>humanPlay(+x.dataset.id));
+ b.querySelectorAll('[data-col]').forEach(x=>x.onclick=()=>humanPlay(S.pick,x.dataset.col));
+ const ag=q('#uAgain');if(ag)ag.onclick=()=>{const mw=total.findIndex((t,i)=>i<nPlayers&&t>=WIN_SCORE);if(mw>=0)newMatch();else newRound()};
+}
+newMatch();
+}function domino(b){let pool=[];for(let a=0;a<=6;a++)for(let c=a;c<=6;c++)pool.push([a,c]);pool.sort(()=>Math.random()-.5);let hand=pool.splice(0,7),line=[pool.pop()];function render(){b.innerHTML=`<p>سلسلتك: ${line.map(x=>`[${x}]`).join(' — ')}</p><p>اختر قطعة تصلح لأي طرف من السلسلة.</p><div class="row">${hand.map((x,i)=>`<button class="tile" data-i="${i}">[${x}]</button>`).join('')}</div><div class="status" id="ds">الأطراف: ${line[0][0]} و${line[line.length-1][1]}</div>`;b.querySelectorAll('[data-i]').forEach(elm=>elm.onclick=()=>{let i=+elm.dataset.i,x=hand[i],left=line[0][0],right=line[line.length-1][1];if(x[1]===left)line.unshift(x);else if(x[0]===left)line.unshift([x[1],x[0]]);else if(x[0]===right)line.push(x);else if(x[1]===right)line.push([x[1],x[0]]);else{el('ds').textContent='لا تطابق الطرفين؛ جرّب قطعة أخرى.';return}hand.splice(i,1);if(!hand.length){render();b.insertAdjacentHTML('beforeend','<h2>فزت! 🏆</h2>');return}if(pool.length)hand.push(pool.pop());render()})}render()}
+</script></body></html>
