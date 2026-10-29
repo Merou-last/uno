@@ -1,4 +1,4 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Youcef Alpacino | Game Hub</title><style>
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="theme-color" content="#070914"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mini Games | Merou last</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet"><style>
 :root{--bg:#0a0d18;--panel:#141a2a;--line:#28324b;--txt:#f3f5ff;--muted:#9ca8c7;--gold:#f4c45e;--violet:#8c6cff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1c2340 0,#0a0d18 55%);color:var(--txt);font-family:system-ui,Arial,sans-serif}header{padding:28px max(20px,calc((100% - 1120px)/2));border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap}h1{margin:0;font-size:clamp(24px,4vw,40px)}h1 span{color:var(--gold)}p{color:var(--muted)}a,.btn{color:#fff;text-decoration:none;background:#272f49;border:1px solid #414c6d;padding:10px 14px;border-radius:12px;display:inline-block;cursor:pointer}main{max-width:1120px;margin:28px auto;padding:0 18px}.hero{background:linear-gradient(120deg,#222b4b,#151a2a);border:1px solid var(--line);border-radius:24px;padding:25px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin:22px 0}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;min-height:175px}.icon{font-size:36px}.card h3{margin:8px 0}.card button,.primary{background:linear-gradient(120deg,#7457ef,#a05eff);border:0;border-radius:11px;padding:11px 16px;color:white;font-weight:700;cursor:pointer}.area{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;margin:20px 0;min-height:180px}.hidden{display:none}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.pill{padding:7px 11px;background:#222b43;border-radius:10px;color:#dfe5ff}.board{display:grid;grid-template-columns:repeat(4,minmax(55px,1fr));gap:8px;margin:15px 0}.tile{padding:14px 4px;text-align:center;background:#202a43;border:1px solid #485678;border-radius:12px;cursor:pointer}.tile:disabled{opacity:.4;cursor:not-allowed}.cardtile{font-size:22px;background:#f7f3e9;color:#222;padding:14px 10px;border-radius:10px;border:2px solid #c9c3b5;cursor:pointer}.cardtile.red{color:#c32f46}.status{padding:12px;background:#0c1120;border:1px solid var(--line);border-radius:12px;margin:10px 0}input,select{background:#0b1020;color:white;border:1px solid #414c6d;border-radius:10px;padding:10px}footer{text-align:center;padding:30px;color:var(--muted)}small{color:var(--muted)}
 
 .u-bar{margin-bottom:10px}.u-opps{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.u-opp{min-width:90px;text-align:center;background:#0c1120;border:1px solid var(--line);border-radius:14px;padding:10px}.u-opp.on{border-color:var(--gold);box-shadow:0 0 0 2px #f4c45e55}.u-n{font-size:28px;font-weight:800}.u-tag{color:var(--gold);font-weight:800}
@@ -60,8 +60,145 @@ button:disabled{opacity:.45}
 .xo{display:grid;grid-template-columns:repeat(3,84px);gap:10px;justify-content:center;margin:14px 0}.xc{height:84px;font-size:34px}
 .mem{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:380px;margin:14px auto}.mc{height:74px;font-size:30px;animation:flip .3s}
 @media(prefers-reduced-motion:reduce){*,::before,::after{animation:none!important}}
-</style></head><body><header><div><h1><span>YOUCEF</span> ALPACINO</h1><small>مجتمع الألعاب • نسخة تجريبية قابلة للتشغيل محليًا</small></div><nav class="row"><a href="https://discord.gg/sDBjcqcQjK">Discord</a><a href="https://www.tiktok.com/@youcefalpa22?_r=1&_t=ZS-9AwgfxwIywf7">TikTok</a><a href="https://meroulast.online">متجر الشحن</a></nav></header><main><section class="hero"><h2>اختر لعبتك وابدأ التحدي 🎮</h2><p>واجهة عربية متجاوبة. هذه النسخة تشغّل نماذج اللعب داخل المتصفح؛ اللعب عبر الإنترنت بين أجهزة مختلفة والتحقق من عضوية Discord يحتاجان نشر الخادم وربط المصادقة أولًا.</p><div class="row"><span class="pill">Discord Server ID: 1564749301203079422</span><span class="pill">Firebase: youcefalpacino</span></div></section><section class="cards" id="games"></section><section id="play" class="area hidden"><div class="row" style="justify-content:space-between"><h2 id="gameTitle">اللعبة</h2><button class="btn" onclick="closeGame()">إغلاق</button></div><div id="gameBody"></div></section><section class="area"><h2>معلومات مهمة</h2><p>لا تضع Discord Bot Token أو OAuth Client Secret في قالب Blogger. لا تُعدّل قواعد Firestore لتسمح للجميع بالقراءة والكتابة. استخدم خادمًا موثوقًا للتحقق من عضوية السيرفر والتحقق من كل حركة قبل حفظها.</p><a href="FIREBASE_SETUP_AR.md">دليل إعداد Firebase والأمان</a></section></main><footer>Youcef Alpacino © • رابط Discord الرسمي أعلاه</footer><script>
-const games=[['🃏','UNO','uno','لعبة ورق مصغّرة: اسحب ورقة أو العب ورقة مطابقة للون/الرقم.'],['🪵','Jackaroo','jack','نموذج مسار ونرد للتجربة المحلية.'],['🁫','Dominoes','domino','دومينو محلي للاعب واحد ضد سحب القطع.'],['🎲','Ludo','ludo','سباق نرد تجريبي بأربعة أحجار.'],['🕵️','Who Is the Spy?','spy','وزّع الأدوار سرًا على اللاعبين الموجودين في نفس الجهاز.'],['🐺','Loup-Garou','werewolf','اللعبة الأصلية موجودة في ملفات البوت المرفقة.'],['❌','XO','xo','أكس أو ضد بوت ذكي: هل تهزمه؟'],['🧠','Memory','mem','اقلب البطاقات وطابق الأزواج بأقل حركات.'],['✂️','حجر ورقة مقص','rps','تحدَّ البوت في أفضل 5 جولات.'],['🔮','خمّن الرقم','guess','اكتشف الرقم السري بين 1 و100 في 7 محاولات.']];document.getElementById('games').innerHTML=(()=>{const ART={uno:['#ff3d6b','#ffb347'],jack:['#16a34a','#a3e635'],domino:['#0ea5e9','#6366f1'],ludo:['#f59e0b','#ef4444'],spy:['#7c3aed','#0f172a'],werewolf:['#475569','#7c3aed'],xo:['#06b6d4','#8b5cf6'],mem:['#ec4899','#f59e0b'],rps:['#22c55e','#06b6d4'],guess:['#f43f5e','#8b5cf6']};return games.map((g,n)=>{const c=ART[g[2]]||['#7c3aed','#06b6d4'];return `<article class="card" style="--i:${n};--a:${c[0]};--b:${c[1]}"><div class="art">${g[2]==='uno'?'<span class="mc2" style="--r:-22deg;--c:#d6334a">7</span><span class="mc2" style="--r:0deg;--c:#e8b92e">+2</span><span class="mc2" style="--r:22deg;--c:#2f6fd0">⇄</span>':`<span class="big">${g[0]}</span>`}<i class="sp s1">✦</i><i class="sp s2">✧</i><i class="sp s3">✦</i></div><div class="cb"><h3>${g[1]}</h3><p>${g[3]}</p><button onclick="openGame('${g[2]}','${g[1]}')">فتح اللعبة ✨</button></div></article>`}).join('')})();const el=id=>document.getElementById(id);function closeGame(){window.__unoTok=0;window.__unoLocalTok=0;el('play').classList.add('hidden')}function openGame(g,n){window.__unoTok=0;window.__unoLocalTok=0;el('play').classList.remove('hidden');el('play').scrollIntoView({behavior:'smooth'});el('gameTitle').textContent=n;let b=el('gameBody');if(g==='spy')return spy(b);if(g==='xo')return xo(b);if(g==='mem')return mem(b);if(g==='rps')return rps(b);if(g==='guess')return guess(b);if(g==='uno')return uno(b);if(g==='ludo'||g==='jack')return dice(b,g);if(g==='domino')return domino(b);b.innerHTML='<p>شغّل بوت Loup-Garou الأصلي حسب الدليل داخل الحزمة.</p>'}function xo(b){let B=Array(9).fill(''),over=false;const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]],win=s=>L.some(l=>l.every(i=>B[i]===s));
+
+/* Professional gaming hub refresh */
+:root{--bg:#080b12;--panel:#101622;--line:#242d3d;--txt:#f4f7fb;--muted:#9aa7ba;--gold:#c8ff5e;--violet:#7b61ff}
+body{background:#080b12!important;color:#f4f7fb;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+body::before{opacity:.28;background:radial-gradient(ellipse at 12% 0%,#5c4ac955,transparent 36%),radial-gradient(ellipse at 90% 35%,#c8ff5e14,transparent 32%)}
+body::after{opacity:.12}
+header{max-width:none;padding:20px max(20px,calc((100% - 1240px)/2));background:#080b12e8;border-bottom:1px solid #ffffff12;position:sticky;top:0;z-index:50;backdrop-filter:blur(18px)}
+header h1{font-size:23px;letter-spacing:1.2px;animation:none;filter:none;background:none;color:#f5f7fb;-webkit-text-fill-color:initial}
+header h1 span{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+header small{font-size:10px;letter-spacing:2.4px;text-transform:uppercase}
+header nav{gap:8px}
+header nav a{display:flex;align-items:center;gap:8px;font-weight:650;font-size:13px;border-radius:999px;padding:10px 14px;background:#ffffff08!important;border:1px solid #ffffff18!important;box-shadow:none}
+header nav a img{width:17px;height:17px;object-fit:contain}
+header nav .discord-link{background:#5865f2!important;border-color:#5865f2!important}
+main{max-width:1240px;margin:30px auto;padding:0 22px}
+.hero{position:relative;overflow:hidden;min-height:270px;padding:clamp(28px,5vw,58px);border-radius:26px;background:linear-gradient(105deg,#141c2a 0%,#101622 52%,#18201b 100%)!important;border:1px solid #ffffff16!important}
+.hero:after{content:"GAME ON";position:absolute;left:3%;bottom:-38px;font-size:clamp(70px,13vw,150px);font-weight:950;letter-spacing:-7px;color:#ffffff05;pointer-events:none;direction:ltr}
+.hero-kicker{font-size:12px;font-weight:800;color:var(--gold);letter-spacing:1px;margin-bottom:15px}
+.hero h2{font-size:clamp(30px,5vw,54px);line-height:1.18;letter-spacing:-1.5px;background:none;color:#fff;-webkit-text-fill-color:#fff;animation:none;filter:none;margin:0 0 14px}
+.hero h2 span{color:var(--gold)}
+.hero h2:before,.hero h2:after{display:none}
+.hero p{font-size:16px;max-width:560px;line-height:1.8;color:#aeb8c8}
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:24px}
+.hero .hero-cta{background:var(--gold)!important;color:#111!important;border:0!important;font-weight:850;border-radius:12px;padding:13px 18px;box-shadow:none}
+.hero-cta span{margin-right:10px}
+.hero-note{font-size:12px;color:#aab5c5;display:flex;align-items:center;gap:8px}
+.hero-note i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+#games{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:28px 0 42px}
+.game-card{background:#101622!important;border:1px solid #ffffff12!important;border-radius:18px!important;animation:rise .45s both;transition:transform .25s,border-color .25s,box-shadow .25s}
+.game-card:hover{transform:translateY(-5px);border-color:#c8ff5e66!important;box-shadow:0 18px 42px #0006,0 0 0 1px #c8ff5e12}
+.game-art{height:auto;aspect-ratio:1.62;display:block;background:#1c2432;isolation:isolate}
+.game-art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;filter:saturate(.82) brightness(.82)}
+.game-card:hover .game-art img{transform:scale(1.06);filter:saturate(1) brightness(.95)}
+.game-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#101622 0%,transparent 70%);z-index:1}
+.game-art .game-badge{position:absolute;z-index:2;top:12px;right:12px;font-size:10px;font-weight:800;letter-spacing:.2px;color:#eaf5d5;background:#0b100bd9;border:1px solid #ffffff22;border-radius:999px;padding:6px 9px}
+.game-symbol{position:absolute;z-index:2;bottom:8px;left:14px;font-size:34px;filter:drop-shadow(0 3px 8px #0009)}
+.game-art.art-fallback{display:grid;place-items:center;background:linear-gradient(135deg,#253147,#18201b)}
+.cb{padding:14px 16px 17px;text-align:right}
+.game-meta{display:flex;align-items:center;gap:7px;font-size:10px;color:#8794a8;margin-bottom:7px}
+.game-card h3{font-size:19px;text-align:right;margin:0 0 5px;background:none;color:#f3f6fb;-webkit-text-fill-color:#f3f6fb;animation:none;filter:none;letter-spacing:0}
+.game-card h3:before,.game-card h3:after{display:none}
+.game-card p{font-size:12px;line-height:1.7;margin:0 0 15px;min-height:21px;color:#9ba7b9}
+.game-card .play-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px 12px;border-radius:10px;background:#c8ff5e!important;color:#10140b!important;border:0!important;box-shadow:none!important;font-weight:850;font-size:12px;animation:none}
+.game-card .play-btn span{font-size:17px}
+.area{background:#101622!important;border:1px solid #ffffff12!important;border-radius:18px}
+#play{scroll-margin-top:100px}
+#gameTitle{background:none;color:#fff;-webkit-text-fill-color:#fff;animation:none;filter:none}
+#gameTitle:before,#gameTitle:after{display:none}
+.status{background:#080d16;border-color:#ffffff14}
+.pill{background:#1a2433;color:#d7e1ee}
+footer{border-top:1px solid #ffffff0d;font-size:12px}
+@media(max-width:1000px){#games{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){header{position:relative;padding:17px 18px}header h1{font-size:20px}header nav{width:100%}header nav a{padding:9px 11px;font-size:12px}main{margin:18px auto;padding:0 14px}.hero{min-height:240px;padding:27px 22px}.hero p{font-size:14px}#games{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.game-art{aspect-ratio:1.35}.cb{padding:12px}.game-card h3{font-size:16px}.game-card p{font-size:11px}}
+@media(max-width:380px){#games{grid-template-columns:1fr}.game-art{aspect-ratio:1.8}.hero h2{font-size:30px}}
+
+/* v3: room UX + tabletop */
+:root{--accent:#b6f36b;--felt:#126344;--felt2:#0b432f}
+body{background:#080d12!important}
+body::before,body::after{animation:none!important;opacity:.18}
+h1,h2,.card h3{animation:none!important;filter:none!important;letter-spacing:0;background:none!important;color:#f4f7fb!important;-webkit-text-fill-color:initial}
+h2::before,h2::after,.card h3::before,.card h3::after,#gameTitle::before,#gameTitle::after{content:none!important}
+.hero{background:linear-gradient(125deg,#182b27,#101923)!important;border-color:#28463c!important}
+.hero-kicker{color:var(--accent);font-weight:800}.hero h2 span{color:var(--accent)!important}
+.card{border-radius:18px!important;background:#111a22!important;border-color:#26343e!important;animation:none!important}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 36px #0008}
+.art{height:158px}.art img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9)}
+.game-symbol{position:absolute;bottom:9px;right:12px;font-size:28px;filter:drop-shadow(0 3px 5px #000);z-index:2}
+.game-badge{position:absolute;top:10px;right:10px;z-index:3;background:#07110dcc;border:1px solid #ffffff35;border-radius:999px;padding:5px 9px;font-size:11px}
+.game-meta{display:flex;gap:7px;justify-content:center;color:#93a6b1;font-size:12px}
+.card button,.primary{background:var(--accent)!important;color:#142017!important;border:0!important;box-shadow:none!important;animation:none!important;font-weight:800}
+button:not(.ucard):not(.u-cb),a,.btn{backdrop-filter:none!important;box-shadow:none!important;transition:transform .15s!important}
+button:not(.ucard):not(.u-cb)::after,a::after{content:none!important}
+.area{background:#0d151c!important;border-color:#293944!important}
+.room-shell{max-width:820px;margin:auto}.room-hero{background:linear-gradient(140deg,#14251f,#101820);border:1px solid #315344;border-radius:20px;padding:20px;margin:12px 0}.room-code{font-size:clamp(30px,8vw,48px);font-weight:900;letter-spacing:8px;color:var(--accent);direction:ltr;text-align:center}.room-input{width:100%;min-width:0}.room-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:14px 0}.room-player{background:#121e25;border:1px solid #2b4149;padding:12px;border-radius:14px;overflow-wrap:anywhere}.room-player.host{border-color:#b6f36b77}.room-board{background:radial-gradient(ellipse,#166448,#0b3428 70%);border:9px solid #573e2a;border-radius:28px;padding:clamp(12px,3vw,26px);box-shadow:inset 0 0 0 2px #c7a77b44,0 18px 35px #0007;margin:14px 0;min-height:180px}.room-board .tile{background:#f4f0df;color:#17202a;border-color:#d2c8a9}.online-actions{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}.online-actions>*{flex:1 1 140px}.room-hint{font-size:13px;line-height:1.7;color:#a6b7c1}.room-status{border:1px solid #30433c;background:#0b1513;padding:12px;border-radius:12px;margin:12px 0}.game-cell{min-height:68px;font-size:clamp(22px,5vw,34px);background:#17252b!important;color:#fff!important;border:1px solid #3a5057!important;border-radius:13px}.game-cell:disabled{opacity:1}.online-table-cards{display:flex;gap:7px;overflow:auto;padding:8px 0}.online-domino{display:flex;gap:3px;align-items:center;background:#f6f1df;color:#111;border-radius:8px;padding:9px 8px;border:1px solid #bdb59f;min-width:58px;justify-content:center;font-weight:800}
+@media(max-width:520px){main{padding:0 12px;margin:16px auto}.hero{padding:18px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.art{height:115px}.cb{padding:10px}.card h3{font-size:17px}.cb p{font-size:12px;min-height:32px}.play-btn{width:100%}.room-hero{padding:14px}.u-table{gap:7px}.ucard{width:53px;height:79px}.u-hand{gap:5px}.u-me{padding:8px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+#muteBtn{position:fixed;bottom:16px;left:16px;z-index:9999;width:48px;height:48px;border-radius:50%!important;padding:0!important;font-size:20px;display:grid;place-items:center}
+#play:fullscreen{overflow:auto;background:#0a0d18!important;padding:16px}
+
+/* ===== فخامة: ذهبي + زخرفة + عرض جرافيكي ===== */
+body{font-family:'Cairo',system-ui,Arial,sans-serif}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sweep{from{background-position:250% 0}to{background-position:-150% 0}}
+@keyframes flt{50%{transform:translateY(-16px) rotate(8deg)}}
+.logo{font:900 16px 'Cinzel Decorative',Georgia,serif;letter-spacing:.14em;color:#f4c45e;text-shadow:0 0 14px #f4c45e66}.logo span{display:inline-block;animation:spin 8s linear infinite}
+.hero.lux{position:relative;overflow:hidden;text-align:center;padding:72px 18px 60px;border:1px solid rgba(244,196,94,.4)!important;border-radius:30px!important;background:radial-gradient(ellipse at 50% 0,rgba(244,196,94,.16),transparent 62%),linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.3))!important;box-shadow:inset 0 0 90px rgba(244,196,94,.07),0 30px 80px -30px #000}
+.hero.lux>*{position:relative;z-index:2}
+.hero.lux .rays,.hero.lux .halo,.hero.lux .cn,.hero.lux .fl{position:absolute;pointer-events:none;z-index:0}
+.rays{left:50%;top:50%;width:1000px;height:1000px;margin:-500px;background:repeating-conic-gradient(rgba(244,196,94,.13) 0 5deg,transparent 5deg 15deg);-webkit-mask:radial-gradient(circle,#000 0,transparent 62%);mask:radial-gradient(circle,#000 0,transparent 62%);animation:spin 90s linear infinite}
+.halo{left:50%;top:46%;width:460px;height:460px;margin:-230px;border-radius:50%;background:conic-gradient(#f4c45e,#8c6cff,#06b6d4,#ff4fa3,#f4c45e);filter:blur(70px);opacity:.32;animation:spin 16s linear infinite}
+.cn{width:74px;height:74px;opacity:.9}.cn.tl{top:12px;right:12px;transform:scaleX(-1)}.cn.tr{top:12px;left:12px}.cn.bl{bottom:12px;right:12px;transform:scale(-1,-1)}.cn.br{bottom:12px;left:12px;transform:scaleY(-1)}
+.fl{font-size:40px;opacity:.55;animation:flt 5s ease-in-out infinite;filter:drop-shadow(0 0 10px #f4c45e88);color:#f4c45e}
+.f1{top:18%;right:9%}.f2{top:58%;right:4%;animation-delay:.7s}.f3{bottom:12%;right:18%;animation-delay:1.4s}.f4{top:20%;left:8%;animation-delay:.4s}.f5{top:60%;left:5%;animation-delay:1.1s}.f6{bottom:10%;left:19%;animation-delay:1.8s}
+h1.mg{position:relative;display:inline-block;margin:10px 0 4px;font:900 clamp(40px,10.5vw,104px)/1.05 'Cinzel Decorative','Cinzel',Georgia,serif;letter-spacing:.04em;background:linear-gradient(180deg,#fff7d6 0,#f4c45e 36%,#b8860b 56%,#ffe29a 76%,#8a5a00 100%)!important;background-size:100% 100%!important;-webkit-background-clip:text;background-clip:text;color:transparent;animation:none!important;filter:drop-shadow(0 4px 0 #5a3a00) drop-shadow(0 0 26px #f4c45e77)}
+h1.mg::after{content:attr(data-t);position:absolute;inset:0;background:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sweep 4.5s linear infinite}
+.flo{display:block;width:min(320px,70%);height:24px;margin:6px auto 10px}
+.by{display:flex;align-items:center;justify-content:center;gap:14px;font:600 13px/1 'Cinzel',Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:#e8c878;text-shadow:0 0 12px #f4c45e55}
+.by i{width:clamp(30px,12vw,90px);height:1px;background:linear-gradient(90deg,transparent,#f4c45e)}.by i:last-child{transform:scaleX(-1)}
+.hero.lux p{margin:18px auto 20px;color:#cfd6ee;font-size:17px}
+.hero.lux .hero-actions{justify-content:center}
+.sec{display:flex;align-items:center;gap:14px;margin:34px 0 4px;color:#f4c45e;font-weight:900;font-size:20px;text-shadow:0 0 14px #f4c45e55}
+.sec i{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(244,196,94,.7),transparent)}
+h2,.card h3{background-image:linear-gradient(90deg,#fff3c4,#f4c45e,#fff3c4,#d9a441,#fff3c4)!important;filter:drop-shadow(0 0 10px #f4c45e44)}
+.card{border-color:rgba(244,196,94,.32)!important}
+.card button,.primary{background:linear-gradient(135deg,rgba(244,196,94,.6),rgba(255,255,255,.08))!important;color:#fff8e1;text-shadow:0 1px 2px #0009}
+header{background:linear-gradient(180deg,rgba(0,0,0,.45),transparent);border-bottom-color:rgba(244,196,94,.3)!important}
+footer{color:#c9b27a;letter-spacing:.06em}
+@media(max-width:560px){.cn{width:48px;height:48px}.fl{font-size:26px}.by{letter-spacing:.28em;font-size:11px}.hero.lux{padding:56px 12px 48px}}
+</style></head><body><header><div class="logo"><span>◆</span> MINI GAMES</div><nav class="row"><a class="social-link discord-link" href="https://discord.gg/sDBjcqcQjK" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/discord/ffffff" alt=""> Discord</a><a class="social-link" href="https://www.tiktok.com/@youcefalpa22?_r=1&_t=ZS-9AwgfxwIywf7" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/tiktok/ffffff" alt=""> TikTok</a><a class="social-link" href="https://meroulast.online" target="_blank" rel="noopener">متجر الشحن ↗</a></nav></header><main><section class="hero lux"><div class="rays"></div><div class="halo"></div><svg class="cn tl" viewBox="0 0 80 80" fill="none" stroke="#f4c45e" stroke-width="1.5"><path d="M2 78V22C2 11 11 2 22 2h56M12 78V30c0-10 8-18 18-18h48"/><circle cx="22" cy="22" r="3.5" fill="#f4c45e"/><path d="M40 2v10M2 40h10" stroke-opacity=".6"/></svg><svg class="cn tr" viewBox="0 0 80 80" fill="none" stroke="#f4c45e" stroke-width="1.5"><path d="M2 78V22C2 11 11 2 22 2h56M12 78V30c0-10 8-18 18-18h48"/><circle cx="22" cy="22" r="3.5" fill="#f4c45e"/><path d="M40 2v10M2 40h10" stroke-opacity=".6"/></svg><svg class="cn bl" viewBox="0 0 80 80" fill="none" stroke="#f4c45e" stroke-width="1.5"><path d="M2 78V22C2 11 11 2 22 2h56M12 78V30c0-10 8-18 18-18h48"/><circle cx="22" cy="22" r="3.5" fill="#f4c45e"/><path d="M40 2v10M2 40h10" stroke-opacity=".6"/></svg><svg class="cn br" viewBox="0 0 80 80" fill="none" stroke="#f4c45e" stroke-width="1.5"><path d="M2 78V22C2 11 11 2 22 2h56M12 78V30c0-10 8-18 18-18h48"/><circle cx="22" cy="22" r="3.5" fill="#f4c45e"/><path d="M40 2v10M2 40h10" stroke-opacity=".6"/></svg><span class="fl f1">♠</span><span class="fl f2">♥</span><span class="fl f3">🎲</span><span class="fl f4">♦</span><span class="fl f5">🎮</span><span class="fl f6">♣</span><div class="hero-kicker">✦ ARCADE · FRIENDS · FUN ✦</div><h1 class="mg" data-t="Mini Games">Mini Games</h1><svg class="flo" viewBox="0 0 320 24" fill="none" stroke="url(#fg)" stroke-width="1.4"><defs><linearGradient id="fg"><stop offset="0" stop-color="#f4c45e" stop-opacity="0"/><stop offset=".5" stop-color="#ffe6a0"/><stop offset="1" stop-color="#f4c45e" stop-opacity="0"/></linearGradient></defs><path d="M0 12H118M202 12H320"/><path d="M118 12c14 0 14-8 24-8s10 8 18 8 8-8 18-8 10 8 24 8c-14 0-14 8-24 8s-10-8-18-8-8 8-18 8-10-8-24-8z"/><path d="M160 5l7 7-7 7-7-7z" fill="#ffe6a0" stroke="none"/></svg><div class="by"><i></i><span>• Merou last</span><i></i></div><p>ألعاب سريعة، أصدقاء أكثر، ومتعة بلا تعقيد.</p><div class="hero-actions"><a class="hero-cta" href="#games">استكشف الألعاب <span>↓</span></a><span class="hero-note"><i></i> ألعاب متاحة الآن</span></div></section><div class="sec"><i></i><span>✦ اختر لعبتك ✦</span><i></i></div><section class="cards" id="games"></section><section id="play" class="area hidden"><div class="row" style="justify-content:space-between"><h2 id="gameTitle">اللعبة</h2><button class="btn" onclick="closeGame()">إغلاق</button></div><div id="gameBody"></div></section></main><footer>Mini Games ✦ Merou last · Youcef Alpacino ©</footer><script>
+const games=[
+['🃏','UNO','uno','ورق واستراتيجية','uno'],
+['🪵','Jackaroo','jack','تخطيط وحظ','jack'],
+['🁫','Dominoes','domino','دومينو كلاسيكي','domino'],
+['🎲','Ludo','ludo','سباق وتحدٍ','ludo'],
+['🕵️','Who Is the Spy?','spy','خداع وذكاء اجتماعي','spy'],
+['🐺','Loup-Garou','werewolf','استنتاج وأدوار سرية','werewolf'],
+['❌','XO','xo','تحدٍ سريع ضد البوت','xo'],
+['🔴','Connect 4','connect4','أوصل أربع قطع متتالية','connect4'],
+['❓','Quiz Duel','quiz','تحدي معلومات مباشر','quiz'],
+['🧠','Memory','mem','اختبر ذاكرتك','mem'],
+['✂️','حجر ورقة مقص','rps','أفضل خمس جولات','rps'],
+['🔮','خمّن الرقم','guess','سبع محاولات للفوز','guess']
+];
+const GAME_ART={
+uno:'https://images.unsplash.com/photo-1606503153255-59d8b8b82176?auto=format&fit=crop&w=900&q=85',
+jack:'https://images.unsplash.com/photo-1606167668584-78701c57f13d?auto=format&fit=crop&w=900&q=85',
+domino:'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=900&q=85',
+ludo:'https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?auto=format&fit=crop&w=900&q=85',
+spy:'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=85',
+werewolf:'https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=85',
+xo:'https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=900&q=85',
+mem:'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=900&q=85',
+rps:'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=85',
+guess:'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=900&q=85',
+connect4:'https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=900&q=85',
+quiz:'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=900&q=85'
+};
+document.getElementById('games').innerHTML=games.map((g,n)=>`<article class="card game-card" style="--i:${n}"><div class="art game-art"><img src="${GAME_ART[g[4]]}" alt="${g[1]}" loading="${n<4?'eager':'lazy'}" onerror="this.style.display='none';this.parentElement.classList.add('art-fallback')"><span class="game-badge">${n<4?'مميزة':'لعبة متاحة'}</span><span class="game-symbol">${g[0]}</span></div><div class="cb"><div class="game-meta"><span>لعبة متصفح</span><span>•</span><span>واجهة عربية</span></div><h3>${g[1]}</h3><p>${g[3]}</p><button class="play-btn" onclick="openGame('${g[2]}','${g[1]}')">العب الآن <span aria-hidden="true">←</span></button></div></article>`).join('');
+const el=id=>document.getElementById(id);function closeGame(){window.__unoTok=0;window.__unoLocalTok=0;el('play').classList.add('hidden')}function openGame(g,n){window.__unoTok=0;window.__unoLocalTok=0;el('play').classList.remove('hidden');el('play').scrollIntoView({behavior:'smooth'});el('gameTitle').textContent=n;let b=el('gameBody');if(g==='spy')return spy(b);if(g==='xo')return xo(b);if(g==='mem')return mem(b);if(g==='rps')return rps(b);if(g==='guess')return guess(b);if(g==='uno')return uno(b);if(g==='ludo'||g==='jack')return dice(b,g);if(g==='domino')return domino(b);b.innerHTML='<p>شغّل بوت Loup-Garou الأصلي حسب الدليل داخل الحزمة.</p>'}function xo(b){let B=Array(9).fill(''),over=false;const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]],win=s=>L.some(l=>l.every(i=>B[i]===s));
 function bot(){const f=s=>{for(const l of L){const v=l.map(i=>B[i]);if(v.filter(x=>x===s).length===2&&v.includes(''))return l[v.indexOf('')]}return -1};let m=f('O');if(m<0)m=f('X');if(m<0&&B[4]==='')m=4;if(m<0){const e=B.map((v,i)=>v?-1:i).filter(i=>i>=0);m=e[Math.floor(Math.random()*e.length)]}B[m]='O'}
 function end(m){over=true;draw(m)}
 function draw(msg){b.innerHTML=`<p>أنت ❌ والبوت ⭕</p><div class="xo">${B.map((v,i)=>`<button class="xc" data-i="${i}" ${v||over?'disabled':''}>${v==='X'?'❌':v==='O'?'⭕':''}</button>`).join('')}</div><div class="status">${msg||'دورك!'}</div><button class="primary" id="again">لعبة جديدة</button>`;
@@ -96,10 +233,10 @@ const COLORS=['red','yellow','green','blue'],CN={red:'أحمر',yellow:'أصفر
 const SYM={skip:'⊘',rev:'⇄',d2:'+2',wild:'★',w4:'+4'};
 const WIN=200,MAXP=4;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let X=null,code='',room=null,hand=[],members=[],H=null,unsubs=[],queue=Promise.resolve(),pick=null,said=false,hostLoading=false;
+let X=null,code='',room=null,hand=[],members=[],H=null,unsubs=[],queue=Promise.resolve(),pick=null,said=false,hostLoading=false,turnTimer=null,turnBegan=Date.now(),lastTurnKey='',lastAutoAt=0;
 const alive=()=>window.__unoTok===tok;
 const q=s=>b.querySelector(s);
-function stop(){unsubs.forEach(u=>{try{u()}catch(e){}});unsubs=[]}
+function stop(){unsubs.forEach(u=>{try{u()}catch(e){}});unsubs=[];if(turnTimer){clearInterval(turnTimer);turnTimer=null}}
 function leave(){stop();try{localStorage.removeItem('unoRoom')}catch(e){}room=null;hand=[];members=[];H=null;code='';uno(b)}
 function lab(c){return SYM[c.v]||c.v}
 function isNum(c){return c.c&&/^\d$/.test(c.v)}
@@ -170,6 +307,7 @@ function doAct(a){
   return commit(dirty);
  }
 }
+function bestAutoColor(h){const cnt={red:0,yellow:0,green:0,blue:0};h.forEach(c=>{if(c.c)cnt[c.c]++});return Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a])[0]}
 function hostRun(a){queue=queue.then(()=>doAct(a)).catch(e=>{console.error(e)});return queue}
 function startGame(){
  const ms=members.slice().sort((x,y)=>x.joinedAt-y.joinedAt);
@@ -231,15 +369,16 @@ function enter(){
   const adds=s.docChanges().filter(c=>c.type==='added').map(c=>({ref:c.doc.ref,d:c.doc.data()})).sort((x,y)=>(x.d.t||0)-(y.d.t||0));
   adds.forEach(x=>{queue=queue.then(async()=>{await doAct(x.d);try{await F.deleteDoc(x.ref)}catch(e){}}).catch(e=>{console.error(e)})});
  },e=>{}));
+ if(!turnTimer)turnTimer=setInterval(()=>{if(!alive()||!room||room.status!=='playing')return;const key=room.round+':'+room.turn+':'+room.status;if(key!==lastTurnKey){lastTurnKey=key;turnBegan=Date.now()}const left=Math.max(0,(room.turnSeconds||30)-Math.floor((Date.now()-turnBegan)/1000));const timerEl=q('#oTimer');if(timerEl)timerEl.textContent='⏱ '+left+'ث';if(left===0&&Date.now()-lastAutoAt>1800&&room.host===uid&&H&&H.status==='playing'){lastAutoAt=Date.now();const u=H.order[H.turn],hh=H.hands[u]||[];if(H.drawn!==null){const c=hh.find(x=>x.id===H.drawn);if(c&&hPlayable(c,hh))hostRun({uid:u,type:'play',cardId:c.id,color:c.c?null:bestAutoColor(hh),uno:false,t:Date.now()});else hostRun({uid:u,type:'pass',t:Date.now()})}else{const opts=hh.filter(c=>hPlayable(c,hh));if(opts.length){const c=opts[0];hostRun({uid:u,type:'play',cardId:c.id,color:c.c?null:bestAutoColor(hh),uno:false,t:Date.now()})}else hostRun({uid:u,type:'draw',t:Date.now()})}}},1000);
  render();
 }
 function genCode(){const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<5;i++)s+=A[Math.floor(Math.random()*A.length)];return s}
-async function createRoom(name){
+async function createRoom(name,turnSeconds){
  X=await X_();const F=X.F,db=X.db;let ok=false;
  for(let i=0;i<6&&!ok;i++){
   const c=genCode(),ref=F.doc(db,'unoRooms',c);
   const s=await F.getDoc(ref);if(s.exists())continue;
-  await F.setDoc(ref,{host:X.uid,hostName:name,status:'lobby',created:Date.now()});code=c;ok=true;
+  await F.setDoc(ref,{host:X.uid,hostName:name,status:'lobby',created:Date.now(),turnSeconds:Number(turnSeconds)||30});code=c;ok=true;
  }
  if(!ok)throw new Error('تعذّر إنشاء كود');
  await F.setDoc(F.doc(db,'unoRooms',code,'members',X.uid),{name:name,joinedAt:Date.now()});
@@ -266,14 +405,14 @@ function entry(msg){
  if(!alive())return;
  let nm='',saved='';try{nm=localStorage.getItem('unoName')||'';saved=localStorage.getItem('unoRoom')||''}catch(e){}
  b.innerHTML='<div class="u-wrap"><button class="btn" id="oBack">⬅ رجوع</button><h3>🌐 UNO أونلاين</h3><p>اكتب اسمك، ثم أنشئ غرفة وأرسل الكود لأصدقائك (حتى 4 لاعبين).</p>'
- +'<input id="oName" maxlength="20" placeholder="اسمك" value="'+esc(nm)+'" style="width:100%"><div class="row" style="margin:10px 0"><button class="primary" id="oCreate">➕ إنشاء غرفة</button></div>'
+ +'<input id="oName" maxlength="20" placeholder="اسمك" value="'+esc(nm)+'" style="width:100%"><div class="row" style="margin:10px 0"><label>وقت الدور <select id="oTurnTime"><option value="15">15 ثانية</option><option value="30" selected>30 ثانية</option><option value="45">45 ثانية</option><option value="60">60 ثانية</option></select></label><button class="primary" id="oCreate">➕ إنشاء غرفة</button></div>'
  +'<div class="row"><input id="oCode" maxlength="5" placeholder="كود الغرفة" style="width:140px;text-transform:uppercase"><button class="primary" id="oJoin">دخول</button></div>'
  +(saved?'<div class="row" style="margin-top:10px"><button class="btn" id="oResume">↩ العودة للغرفة '+esc(saved)+'</button></div>':'')
  +'<div class="status" id="oErr" style="display:'+(msg?'block':'none')+'">'+esc(msg||'')+'</div></div>';
  const name=()=>{const v=q('#oName').value.trim().slice(0,20);try{localStorage.setItem('unoName',v)}catch(e){}return v};
  const run=async f=>{q('#oErr').style.display='block';q('#oErr').textContent='جارٍ الاتصال...';try{await f()}catch(e){if(alive())entry(errText(e))}};
  q('#oBack').onclick=()=>{stop();uno(b)};
- q('#oCreate').onclick=()=>{const n=name();if(!n){entry('اكتب اسمك أولًا');return}run(()=>createRoom(n))};
+ q('#oCreate').onclick=()=>{const n=name();if(!n){entry('اكتب اسمك أولًا');return}run(()=>createRoom(n,q('#oTurnTime').value))};
  q('#oJoin').onclick=()=>{const n=name(),c=q('#oCode').value;if(!n||c.trim().length<5){entry('اكتب اسمك وكود الغرفة (5 أحرف)');return}run(()=>joinRoom(c,n))};
  const rs=q('#oResume');if(rs)rs.onclick=()=>run(()=>resumeRoom(saved));
 }
@@ -296,7 +435,7 @@ function render(){
  }
  const me=myTurn(),over=room.status==='over',nm=u=>esc(room.names[u]||'لاعب');
  const mine=hand.slice().sort((a,z)=>(COLORS.indexOf(a.c)<0?9:COLORS.indexOf(a.c))-(COLORS.indexOf(z.c)<0?9:COLORS.indexOf(z.c))||(a.v>z.v?1:-1));
- let h='<div class="u-wrap"><div class="row u-bar"><span class="pill">غرفة '+esc(code)+'</span><span class="pill">الجولة '+room.round+'</span><span class="pill">الاتجاه '+(room.dir===1?'↻':'↺')+'</span><button class="btn" id="oLeave">خروج</button></div>';
+ let h='<div class="u-wrap"><div class="row u-bar"><span class="pill">غرفة '+esc(code)+'</span><span class="pill">الجولة '+room.round+'</span><span class="pill">الاتجاه '+(room.dir===1?'↻':'↺')+'</span><span class="pill" id="oTimer">⏱ 30ث</span><button class="btn" id="oLeave">خروج</button></div>';
  h+='<div class="u-opps">'+room.order.filter(u=>u!==X.uid).map(u=>{const n=room.counts[u];return'<div class="u-opp'+(room.turn===u&&!over?' on':'')+'"><div>'+nm(u)+'</div><div class="u-n">'+n+'</div><small>بطاقة</small>'+(n===1?'<div class="u-tag">UNO!</div>':'')+'</div>'}).join('')+'</div>';
  h+='<div class="u-table"><button class="ucard c-back" id="oDraw"'+(me&&room.drawn===null?'':' disabled')+' aria-label="اسحب"><i>UNO</i><small>سحب ('+room.deckN+')</small></button>'+cardHTML(room.top,'u-top','disabled')+'<div class="u-col"><span class="u-dot c-'+room.color+'"></span><small>اللون: '+CN[room.color]+'</small></div></div>';
  h+='<div class="status" id="oMsg">'+esc(room.msg||'')+'</div>';
@@ -452,4 +591,113 @@ function render(){
 }
 newMatch();
 }function domino(b){let pool=[];for(let a=0;a<=6;a++)for(let c=a;c<=6;c++)pool.push([a,c]);pool.sort(()=>Math.random()-.5);let hand=pool.splice(0,7),line=[pool.pop()];function render(){b.innerHTML=`<p>سلسلتك: ${line.map(x=>`[${x}]`).join(' — ')}</p><p>اختر قطعة تصلح لأي طرف من السلسلة.</p><div class="row">${hand.map((x,i)=>`<button class="tile" data-i="${i}">[${x}]</button>`).join('')}</div><div class="status" id="ds">الأطراف: ${line[0][0]} و${line[line.length-1][1]}</div>`;b.querySelectorAll('[data-i]').forEach(elm=>elm.onclick=()=>{let i=+elm.dataset.i,x=hand[i],left=line[0][0],right=line[line.length-1][1];if(x[1]===left)line.unshift(x);else if(x[0]===left)line.unshift([x[1],x[0]]);else if(x[0]===right)line.push(x);else if(x[1]===right)line.push([x[1],x[0]]);else{el('ds').textContent='لا تطابق الطرفين؛ جرّب قطعة أخرى.';return}hand.splice(i,1);if(!hand.length){render();b.insertAdjacentHTML('beforeend','<h2>فزت! 🏆</h2>');return}if(pool.length)hand.push(pool.pop());render()})}render()}
-</script></body></html>
+
+/* ===== Multiplayer rooms for all non-UNO games (Firestore host-authoritative beta) ===== */
+const __openGameLocal=openGame;
+function openGame(g,n){
+ window.__unoTok=0;window.__unoLocalTok=0;
+ if(g==='uno'){el('play').classList.remove('hidden');el('play').scrollIntoView({behavior:'smooth'});el('gameTitle').textContent=n;return uno(el('gameBody'));}
+ el('play').classList.remove('hidden');el('play').scrollIntoView({behavior:'smooth'});el('gameTitle').textContent=n;
+ const b=el('gameBody');
+ b.innerHTML=`<div class="room-shell"><div class="room-hero"><h3>${n} — اختر طريقة اللعب</h3><p>يمكنك اللعب محليًا أو إنشاء طاولة أونلاين وإرسال كودها للأصدقاء.</p><div class="online-actions"><button class="primary" id="localStart">🎮 لعب محلي / ضد البوت</button><button class="primary" id="onlineStart">🌐 اللعب أونلاين</button></div><p class="room-hint">الأونلاين يحتاج تفعيل Anonymous Authentication ونشر قواعد Firestore الموجودة في الحزمة. هذه نسخة تجريبية تعتمد على جهاز المضيف لإدارة الجولة.</p></div></div>`;
+ b.querySelector('#localStart').onclick=()=>{if(g==='connect4'||g==='quiz'){alert('هذه اللعبة الجديدة متاحة حاليًا في وضع الأونلاين.');return}__openGameLocal(g,n)};
+ b.querySelector('#onlineStart').onclick=()=>onlineRoom(b,g,n);
+}
+async function onlineRoom(b,game,title){
+ let X=null,code='',room=null,players=[],unsubs=[],queue=Promise.resolve(),ended=false;
+ const max=game==='xo'||game==='connect4'?2:game==='rps'||game==='guess'||game==='quiz'?8:game==='mem'?4:4;
+ const esc2=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const stop=()=>{unsubs.forEach(u=>{try{u()}catch(e){}});unsubs=[]};
+ const msgErr=e=>/permission-denied/.test(e.code||'')?'رفضت قواعد Firestore العملية؛ انشر firestore.rules من الحزمة.':/operation-not-allowed/.test(e.code||'')?'فعّل Anonymous Authentication من Firebase Console → Authentication.':(e.message||'تعذر الاتصال');
+ function uiEntry(err=''){
+  stop();const nm=(()=>{try{return localStorage.getItem('gameHubName')||''}catch(e){return ''}})();
+  b.innerHTML=`<div class="room-shell"><button class="btn" id="backRooms">← رجوع</button><div class="room-hero"><div class="game-meta">طاولة أونلاين • ${title}</div><h3>العب مع أصدقائك</h3><p>أنشئ غرفة خاصة أو أدخل كود صديقك. ${max===2?'الحد الأقصى لاعبان.':`الحد الأقصى ${max} لاعبين.`}</p><label>اسم اللاعب</label><input id="roomName" class="room-input" maxlength="24" placeholder="اكتب اسمك" value="${esc2(nm)}"><div class="online-actions"><button class="primary" id="roomCreate">＋ إنشاء طاولة</button></div><div class="row"><input id="roomJoinCode" class="room-input" maxlength="5" placeholder="كود الغرفة" dir="ltr" style="text-transform:uppercase"><button class="primary" id="roomJoin">انضمام</button></div><div class="room-status" id="roomError" ${err?'':'hidden'}>${esc2(err)}</div></div><p class="room-hint">ملاحظة: لا تغلق صفحة المضيف أثناء اللعب؛ في هذه النسخة التجريبية يتولى المضيف مزامنة النقلات.</p></div>`;
+  b.querySelector('#backRooms').onclick=()=>__openGameLocal(game,title);
+  const name=()=>{const v=b.querySelector('#roomName').value.trim().slice(0,24);if(v)try{localStorage.setItem('gameHubName',v)}catch(e){}return v};
+  const run=async f=>{const e=b.querySelector('#roomError');e.hidden=false;e.textContent='جارٍ الاتصال...';try{await f()}catch(ex){if(!ended)uiEntry(msgErr(ex))}};
+  b.querySelector('#roomCreate').onclick=()=>{if(!name())return uiEntry('اكتب اسمك أولًا');run(()=>create(name()))};
+  b.querySelector('#roomJoin').onclick=()=>{if(!name())return uiEntry('اكتب اسمك أولًا');const c=b.querySelector('#roomJoinCode').value.trim().toUpperCase();if(c.length!==5)return uiEntry('أدخل كودًا من 5 أحرف');run(()=>join(c,name()))};
+ }
+ function codegen(){const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';return Array.from({length:5},()=>a[Math.floor(Math.random()*a.length)]).join('')}
+ async function create(name){X=await loadFB();const F=X.F,db=X.db;let c='',ref;for(let i=0;i<8;i++){c=codegen();ref=F.doc(db,'gameRooms',c);if(!(await F.getDoc(ref)).exists())break;c=''}if(!c)throw Error('تعذر إنشاء كود غرفة');code=c;const state=initialState(game);await F.setDoc(ref,{game,host:X.uid,hostName:name,status:'lobby',max,createdAt:Date.now(),state,turnStartedAt:Date.now(),revision:0});await F.setDoc(F.doc(db,'gameRooms',code,'players',X.uid),{displayName:name,avatarUrl:'',joinedAt:Date.now(),ready:true});if(game==='guess')await F.setDoc(F.doc(db,'gameRooms',code,'private','secret'),{target:1+Math.floor(Math.random()*100)});enter()}
+ async function join(c,name){X=await loadFB();const F=X.F,db=X.db,ref=F.doc(db,'gameRooms',c),s=await F.getDoc(ref);if(!s.exists())throw Error('الغرفة غير موجودة');const r=s.data();if(r.game!==game)throw Error('هذا الكود مخصص للعبة أخرى');if(r.status!=='lobby')throw Error('بدأت اللعبة بالفعل');const ps=await F.getDocs(F.collection(db,'gameRooms',c,'players'));if(ps.size>=r.max)throw Error('الغرفة ممتلئة');code=c;await F.setDoc(F.doc(db,'gameRooms',code,'players',X.uid),{displayName:name,avatarUrl:'',joinedAt:Date.now(),ready:true});enter()}
+ function initialState(g){if(g==='xo')return{board:Array(9).fill(''),turn:0,over:false,winner:null,msg:'ابدأوا اللعب'};if(g==='connect4')return{board:Array(42).fill(''),turn:0,over:false,winner:null,msg:'أوصل أربع قطع متتالية'};if(g==='quiz')return{questions:[{q:'كم عدد ألوان قوس قزح التقليدي؟',o:['5','6','7','8'],a:2},{q:'ما عاصمة اليابان؟',o:['سيول','طوكيو','بكين','بانكوك'],a:1},{q:'كم ضلعًا للمثلث؟',o:['2','3','4','5'],a:1},{q:'أي كوكب يُعرف بالكوكب الأحمر؟',o:['الزهرة','المريخ','المشتري','زحل'],a:1},{q:'ما أكبر محيط على الأرض؟',o:['الأطلسي','الهندي','الهادئ','المتجمد'],a:2}],qIndex:0,answered:{},scores:{},turn:0,over:false,msg:'أجب بأسرع ما يمكن'};if(g==='rps')return{round:1,picks:{},scores:{},over:false,msg:'اختر حجرًا أو ورقة أو مقصًا'};if(g==='guess')return{turn:0,attempts:{},over:false,msg:'خمّن رقمًا بين 1 و100'};if(g==='mem'){const a=['🐉','🦄','🔮','⚔️','👑','🧙'];return{cards:[...a,...a].sort(()=>Math.random()-.5),opened:[],matched:[],turn:0,over:false,msg:'اكشف بطاقتين في دورك'}}if(g==='ludo'||g==='jack')return{positions:{},turn:0,lastRoll:null,over:false,msg:'ارمِ النرد للتقدم'};if(g==='domino')return{chain:[],hands:{},turn:0,over:false,msg:'ابدأ الجولة'};return{round:1,phase:'lobby',votes:{},over:false,msg:'ابدأوا الجولة واتفقوا صوتيًا على الأدوار'};}
+ function enter(){stop();const F=X.F,db=X.db,ref=F.doc(db,'gameRooms',code);unsubs.push(F.onSnapshot(ref,s=>{if(!s.exists()){uiEntry('الغرفة لم تعد موجودة');return}room=s.data();render()}));unsubs.push(F.onSnapshot(F.collection(db,'gameRooms',code,'players'),s=>{players=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,z)=>a.joinedAt-z.joinedAt);render()}));unsubs.push(F.onSnapshot(F.collection(db,'gameRooms',code,'actions'),s=>{if(!room||room.host!==X.uid)return;s.docChanges().filter(c=>c.type==='added').forEach(ch=>{const data=ch.doc.data();queue=queue.then(()=>processAction(data)).then(()=>F.deleteDoc(ch.doc.ref)).catch(console.error)})}));}
+ async function writeRoom(patch){const F=X.F,db=X.db;await F.updateDoc(F.doc(db,'gameRooms',code),{...patch,revision:(room.revision||0)+1,updatedAt:Date.now()})}
+ async function submit(type,payload={}){if(!room||room.status!=='playing')return;const F=X.F,db=X.db;await F.addDoc(F.collection(db,'gameRooms',code,'actions'),{uid:X.uid,type,payload,createdAt:Date.now()})}
+ function activePlayer(){return players[room.state.turn%Math.max(1,players.length)]}
+ function initialStart(){const s=JSON.parse(JSON.stringify(room.state));if(game==='ludo'||game==='jack'){players.forEach(p=>s.positions[p.id]=0)}if(game==='domino'){const pool=[];for(let a=0;a<=6;a++)for(let d=a;d<=6;d++)pool.push([a,d]);pool.sort(()=>Math.random()-.5);s.hands={};players.forEach(p=>s.hands[p.id]=pool.splice(0,7));s.chain=[pool.pop()];s.pool=pool}s.turn=0;s.msg='بدأت اللعبة';return s}
+ async function start(){if(players.length<2) return alert('تحتاج لاعبين على الأقل');const state=initialStart();if(game==='guess')await X.F.setDoc(X.F.doc(X.db,'gameRooms',code,'private','secret'),{target:1+Math.floor(Math.random()*100)});await writeRoom({status:'playing',state,turnStartedAt:Date.now()})}
+ function checkXO(B,sym){return [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]].some(l=>l.every(i=>B[i]===sym))}
+ async function processAction(a){if(!room||room.host!==X.uid||room.status!=='playing'||!players.some(p=>p.id===a.uid))return;const s=JSON.parse(JSON.stringify(room.state));let msg='';
+  if(game==='xo'){if(players[s.turn%players.length]?.id!==a.uid||s.over||!Number.isInteger(a.payload.cell)||s.board[a.payload.cell])return;s.board[a.payload.cell]=s.turn%2?'⭕':'❌';if(checkXO(s.board,s.board[a.payload.cell])){s.over=true;s.winner=a.uid;msg=players.find(p=>p.id===a.uid)?.displayName+' فاز! 🏆'}else if(s.board.every(Boolean)){s.over=true;msg='تعادل 🤝'}else{s.turn++;msg='الدور على '+players[s.turn%players.length].displayName}}
+  else if(game==='connect4'){const col=Number(a.payload.col);if(players[s.turn%2]?.id!==a.uid||s.over||!Number.isInteger(col)||col<0||col>6)return;let row=-1;for(let r=5;r>=0;r--){const ix=r*7+col;if(!s.board[ix]){row=r;break}}if(row<0)return;const sym=s.turn%2?'🟡':'🔴',idx=row*7+col;s.board[idx]=sym;const count=(dr,dc)=>{let n=0,r=row+dr,c=col+dc;while(r>=0&&r<6&&c>=0&&c<7&&s.board[r*7+c]===sym){n++;r+=dr;c+=dc}return n};const won=[[0,1],[1,0],[1,1],[1,-1]].some(([dr,dc])=>1+count(dr,dc)+count(-dr,-dc)>=4);if(won){s.over=true;s.winner=a.uid;msg=(players.find(p=>p.id===a.uid)?.displayName||'لاعب')+' وصل أربع قطع! 🏆'}else if(s.board.every(Boolean)){s.over=true;msg='تعادل!'}else{s.turn++;msg='الدور على '+players[s.turn%2].displayName}}
+  else if(game==='quiz'){if(s.over||s.answered[a.uid]!=null)return;const q=s.questions[s.qIndex];if(!q)return;const ans=Number(a.payload.answer);if(!Number.isInteger(ans)||ans<0||ans>=q.o.length)return;s.answered[a.uid]=ans;if(ans===q.a)s.scores[a.uid]=(s.scores[a.uid]||0)+1;msg='تم تسجيل إجابة '+(Object.keys(s.answered).length)+'/'+players.length;if(Object.keys(s.answered).length===players.length){msg='انتهت الجولة: '+q.q+' — الإجابة الصحيحة: '+q.o[q.a];if(s.qIndex>=s.questions.length-1){s.over=true;const sorted=players.slice().sort((x,y)=>(s.scores[y.id]||0)-(s.scores[x.id]||0));s.winner=sorted[0]?.id;msg+=' • فاز '+(sorted[0]?.displayName||'لاعب')}else{s.qIndex++;s.answered={};}}}
+  else if(game==='rps'){if(s.picks[a.uid]!=null)return;s.picks[a.uid]=a.payload.choice;if(Object.keys(s.picks).length===players.length){const vals=Object.values(s.picks),uniq=[...new Set(vals)];if(uniq.length===2){const win=uniq.includes('🪨')&&uniq.includes('✂️')?'🪨':uniq.includes('📄')&&uniq.includes('🪨')?'📄':'✂️';const w=Object.keys(s.picks).filter(k=>s.picks[k]===win);w.forEach(k=>s.scores[k]=(s.scores[k]||0)+1);msg='انتهت الجولة — الفائزون: '+w.map(k=>players.find(p=>p.id===k)?.displayName).join('، ')}else msg='تعادل!';s.picks={};s.round++;}else msg='تم تسجيل اختيارك؛ بانتظار بقية اللاعبين'}
+  else if(game==='guess'){if(players[s.turn%players.length]?.id!==a.uid||s.over)return;const sec=await X.F.getDoc(X.F.doc(X.db,'gameRooms',code,'private','secret'));const target=sec.exists()?sec.data().target:50;const v=Number(a.payload.value);if(!Number.isInteger(v)||v<1||v>100)return;s.attempts[a.uid]=(s.attempts[a.uid]||0)+1;if(v===target){s.over=true;s.winner=a.uid;msg='إجابة صحيحة! فاز '+(players.find(p=>p.id===a.uid)?.displayName)}else{msg=v<target?'أعلى ⬆️':'أقل ⬇️';if(s.attempts[a.uid]>=7){s.turn++;s.attempts[a.uid]=0;msg+=' — انتهت محاولات اللاعب، الدور التالي'}else msg+=' — المحاولة '+s.attempts[a.uid]+'/7'}}
+  else if(game==='mem'){const i=Number(a.payload.index);if(!Number.isInteger(i)||i<0||i>=s.cards.length||s.matched.includes(i)||s.opened.includes(i)||s.over)return;s.opened.push(i);if(s.opened.length===2){if(s.cards[s.opened[0]]===s.cards[s.opened[1]]){s.matched.push(...s.opened);s.opened=[];msg='زوج صحيح!';}else msg='ليست متطابقة';s.openedAt=Date.now();if(s.matched.length===s.cards.length)s.over=true;else s.turn=(s.turn+1)%players.length;}else msg='اختر بطاقة ثانية';}
+  else if(game==='ludo'||game==='jack'){if(players[s.turn%players.length]?.id!==a.uid||s.over)return;const d=1+Math.floor(Math.random()*6);s.lastRoll=d;s.positions[a.uid]=Math.min(30,(s.positions[a.uid]||0)+d);msg=(players.find(p=>p.id===a.uid)?.displayName||'لاعب')+' رمى '+d+' وتقدم إلى '+s.positions[a.uid]+'/30';if(s.positions[a.uid]>=30){s.over=true;s.winner=a.uid;msg+=' — فاز!'}else s.turn=(s.turn+1)%players.length;}
+  else if(game==='domino'){if(players[s.turn%players.length]?.id!==a.uid||s.over)return;const h=s.hands[a.uid]||[],i=Number(a.payload.index),tile=h[i];if(!tile)return;const left=s.chain[0][0],right=s.chain[s.chain.length-1][1];if(tile[1]===left)s.chain.unshift(tile);else if(tile[0]===left)s.chain.unshift([tile[1],tile[0]]);else if(tile[0]===right)s.chain.push(tile);else if(tile[1]===right)s.chain.push([tile[1],tile[0]]);else return;h.splice(i,1);if(!h.length){s.over=true;s.winner=a.uid;msg='فاز '+players.find(p=>p.id===a.uid)?.displayName+' بالدومينو!'}else{if(s.pool.length)h.push(s.pool.pop());s.turn=(s.turn+1)%players.length;msg='تم لعب قطعة دومينو'} }
+  else {if(a.type==='vote'){s.votes[a.uid]=a.payload.vote;msg='تم تسجيل التصويت ('+Object.keys(s.votes).length+'/'+players.length+')'}else if(a.type==='next'){s.round++;s.votes={};msg='بدأت الجولة '+s.round}}
+  s.msg=msg||s.msg;await writeRoom({state:s,turnStartedAt:Date.now()});if(game==='mem'&&s.opened.length===2&&!s.matched.includes(s.opened[0])&&s.cards[s.opened[0]]!==s.cards[s.opened[1]]){const pair=s.opened.slice();setTimeout(async()=>{try{const fresh=await X.F.getDoc(X.F.doc(X.db,'gameRooms',code));if(!fresh.exists())return;const st=fresh.data().state;if(st.opened&&st.opened.length===2&&st.opened[0]===pair[0]&&st.opened[1]===pair[1]){st.opened=[];await writeRoom({state:st,turnStartedAt:Date.now()})}}catch(e){}},1100)}
+ }
+ function render(){if(!room)return;const host=room.host===X.uid,me=players.find(p=>p.id===X.uid),s=room.state||{};
+  if(room.status==='lobby'){b.innerHTML=`<div class="room-shell"><button class="btn" id="roomExit">← خروج</button><div class="room-hero"><div class="game-meta">${title} • غرفة خاصة</div><div class="room-code">${code}</div><p style="text-align:center">شارك الكود مع أصدقائك</p><div class="online-actions"><button class="primary" id="copyCode">نسخ الكود</button><button class="btn" id="shareCode">مشاركة الدعوة</button></div></div><h3>اللاعبون (${players.length}/${room.max})</h3><div class="room-grid">${players.map((p,i)=>`<div class="room-player ${p.id===room.host?'host':''}">${p.id===room.host?'👑 المضيف':'🎮 لاعب '+(i+1)}<br><b>${esc2(p.displayName)}</b>${p.id===X.uid?' (أنت)':''}</div>`).join('')}</div><p class="room-hint">عندما يصبح الجميع جاهزًا اضغط بدء اللعبة. اترك صفحة المضيف مفتوحة أثناء اللعب.</p>${host?`<button class="primary" id="roomStart" ${players.length<2?'disabled':''}>▶ بدء اللعبة</button>`:'<div class="room-status">بانتظار المضيف لبدء اللعبة…</div>'}</div>`;
+   b.querySelector('#roomExit').onclick=()=>uiEntry();b.querySelector('#copyCode').onclick=async()=>{try{await navigator.clipboard.writeText(code);b.querySelector('#copyCode').textContent='تم النسخ ✓'}catch(e){prompt('انسخ كود الغرفة',code)}};b.querySelector('#shareCode').onclick=()=>{const text=`تعال العب معي ${title}! كود الغرفة: ${code}`;if(navigator.share)navigator.share({title:'دعوة للعب',text});else prompt('انسخ الدعوة',text)};const st=b.querySelector('#roomStart');if(st)st.onclick=start;return;}
+  const cur=players[s.turn%Math.max(1,players.length)],isTurn=cur&&cur.id===X.uid;
+  let board='';
+  if(game==='xo')board=`<div class="board" style="grid-template-columns:repeat(3,minmax(0,1fr))">${s.board.map((v,i)=>`<button class="game-cell" data-cell="${i}" ${v||s.over||!isTurn?'disabled':''}>${v||'·'}</button>`).join('')}</div>`;
+  else if(game==='connect4')board=`<p>الأحمر والأصفر • اضغط عمودًا لإسقاط القطعة</p><div class="board" style="grid-template-columns:repeat(7,minmax(0,1fr));gap:5px">${Array.from({length:7},(_,c)=>`<button class="btn" data-col="${c}" ${s.over||!isTurn?'disabled':''}>↓</button>`).join('')}${s.board.map((v,i)=>`<button class="game-cell" style="min-height:38px;padding:2px;border-radius:50%" disabled>${v||'⚪'}</button>`).join('')}</div>`;
+  else if(game==='quiz'){const q=s.questions[s.qIndex];board=`<p>السؤال ${Math.min(s.qIndex+1,s.questions.length)}/${s.questions.length} • نقاطك: ${players.map(p=>esc2(p.displayName)+': '+(s.scores[p.id]||0)).join(' | ')}</p><h3>${esc2(q?.q||'انتهى الاختبار')}</h3><div class="online-actions">${(q?.o||[]).map((v,i)=>`<button class="primary" data-answer="${i}" ${s.answered[X.uid]!=null||s.over?'disabled':''}>${esc2(v)}</button>`).join('')}</div><p class="room-hint">الإجابات المسجلة: ${Object.keys(s.answered||{}).length}/${players.length}</p>`;}
+  else if(game==='rps')board=`<p>الجولة ${s.round} • النقاط: ${players.map(p=>esc2(p.displayName)+': '+(s.scores[p.id]||0)).join(' | ')}</p><div class="online-actions">${['🪨','📄','✂️'].map(v=>`<button class="primary" data-choice="${v}" ${s.picks[X.uid]!=null?'disabled':''}>${v} ${v==='🪨'?'حجر':v==='📄'?'ورقة':'مقص'}</button>`).join('')}</div><p class="room-hint">اختيارات الجولة لا تُعرض إلا بعد تسجيل جميع اللاعبين (تعرض النسخة الحالية عدد الاختيارات فقط).</p>`;
+  else if(game==='guess')board=`<p>المحاولات: ${players.map(p=>esc2(p.displayName)+': '+(s.attempts[p.id]||0)+'/7').join(' • ')}</p><div class="online-actions"><input id="guessValue" type="number" min="1" max="100" placeholder="1 إلى 100" ${!isTurn||s.over?'disabled':''}><button class="primary" id="guessSend" ${!isTurn||s.over?'disabled':''}>تأكيد التخمين</button></div>`;
+  else if(game==='mem')board=`<p>الأزواج المكتشفة: ${s.matched.length/2}/${s.cards.length/2}</p><div class="board" style="grid-template-columns:repeat(4,minmax(0,1fr))">${s.cards.map((v,i)=>`<button class="game-cell" data-mem="${i}" ${s.matched.includes(i)||s.opened.includes(i)||!isTurn||s.over?'disabled':''}>${s.matched.includes(i)||s.opened.includes(i)?v:'✦'}</button>`).join('')}</div>`;
+  else if(game==='ludo'||game==='jack')board=`<p>هدف الطاولة: الوصول إلى 30 خانة. الدور الحالي: <b>${esc2(cur?.displayName||'—')}</b></p><div class="room-grid">${players.map(p=>`<div class="room-player">${esc2(p.displayName)}<br><b>${s.positions[p.id]||0}/30</b></div>`).join('')}</div><button class="primary" id="rollDice" ${!isTurn||s.over?'disabled':''}>🎲 ارمِ النرد</button> ${s.lastRoll?`<span class="pill">آخر رمية: ${s.lastRoll}</span>`:''}`;
+  else if(game==='domino'){const h=s.hands[X.uid]||[];board=`<p>السلسلة: ${s.chain.map(t=>`[${t[0]}|${t[1]}]`).join(' — ')||'—'}</p><p>الدور: ${esc2(cur?.displayName||'—')} • قطعك: ${h.length}</p><div class="online-table-cards">${h.map((t,i)=>`<button class="online-domino" data-domino="${i}" ${!isTurn||s.over?'disabled':''}>${t[0]} │ ${t[1]}</button>`).join('')}</div>`}
+  else board=`<p>لعبة اجتماعية أونلاين — الجولة ${s.round||1}</p><p>هذه النسخة توفر غرفة ومزامنة التصويت، لكن أدوار الذئب/الجاسوس الخاصة تحتاج محركًا مخصصًا قبل اعتبارها إصدارًا نهائيًا.</p><div class="online-actions"><button class="primary" id="voteA">🗳️ أصوّت A</button><button class="primary" id="voteB">🗳️ أصوّت B</button><button class="btn" id="nextRound" ${!host?'disabled':''}>جولة جديدة</button></div><p>الأصوات: ${Object.keys(s.votes||{}).length}/${players.length}</p>`;
+  b.innerHTML=`<div class="room-shell"><div class="row" style="justify-content:space-between"><span class="pill">${title} • ${code}</span><button class="btn" id="roomExit">خروج</button></div><div class="room-grid">${players.map((p,i)=>`<div class="room-player ${cur&&cur.id===p.id&&!s.over?'host':''}">${p.id===room.host?'👑':'🎮'} ${esc2(p.displayName)}<br><small>${cur&&cur.id===p.id&&!s.over?'دوره الآن':(s.scores?.[p.id]!=null?'النقاط: '+s.scores[p.id]:'')}</small></div>`).join('')}</div><div class="room-board"><h3>${title}</h3>${board}</div><div class="room-status">${esc2(s.msg||'')}${s.over?' — انتهت اللعبة':''}</div>${s.over?`<div class="room-hero"><h3>انتهت الجولة 🏆</h3><p>${s.winner?esc2(players.find(p=>p.id===s.winner)?.displayName||'فائز')+' فاز!':'النتيجة محفوظة في الغرفة.'}</p>${host?'<button class="primary" id="restartGame">إعادة اللعب</button>':''}</div>`:''}<p class="room-hint">الغرفة: ${code} • اترك المضيف متصلًا حتى لا تتوقف معالجة النقلات.</p></div>`;
+  b.querySelector('#roomExit').onclick=()=>{stop();uiEntry()};
+  b.querySelectorAll('[data-cell]').forEach(x=>x.onclick=()=>submit('move',{cell:+x.dataset.cell}));b.querySelectorAll('[data-col]').forEach(x=>x.onclick=()=>submit('move',{col:+x.dataset.col}));b.querySelectorAll('[data-answer]').forEach(x=>x.onclick=()=>submit('move',{answer:+x.dataset.answer}));
+  b.querySelectorAll('[data-choice]').forEach(x=>x.onclick=()=>submit('move',{choice:x.dataset.choice}));
+  const gs=b.querySelector('#guessSend');if(gs)gs.onclick=()=>submit('move',{value:+b.querySelector('#guessValue').value});
+  b.querySelectorAll('[data-mem]').forEach(x=>x.onclick=()=>submit('move',{index:+x.dataset.mem}));
+  const rd=b.querySelector('#rollDice');if(rd)rd.onclick=()=>submit('move',{});
+  b.querySelectorAll('[data-domino]').forEach(x=>x.onclick=()=>submit('move',{index:+x.dataset.domino}));
+  const va=b.querySelector('#voteA');if(va)va.onclick=()=>submit('vote',{vote:'A'});const vb=b.querySelector('#voteB');if(vb)vb.onclick=()=>submit('vote',{vote:'B'});const nr=b.querySelector('#nextRound');if(nr)nr.onclick=()=>submit('next',{});
+  const re=b.querySelector('#restartGame');if(re)re.onclick=async()=>{if(game==='guess')await X.F.setDoc(X.F.doc(X.db,'gameRooms',code,'private','secret'),{target:1+Math.floor(Math.random()*100)});await writeRoom({status:'playing',state:initialStart(),turnStartedAt:Date.now()})};
+ }
+ uiEntry();
+}
+
+</script><button id="muteBtn" aria-label="الصوت" title="الصوت">🔊</button>
+<script>
+/* طبقة التحسينات: صوت + احتفال بالفوز + إبقاء الشاشة مضاءة + ملء الشاشة + حماية المضيف */
+(function(){
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,$=id=>document.getElementById(id);
+let AC,muted=false;try{muted=localStorage.getItem('mute')==='1'}catch(e){}
+function tone(f,d,ty,v){if(muted)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain(),n=AC.currentTime;o.type=ty||'sine';o.frequency.value=f;g.gain.setValueAtTime(v||.06,n);g.gain.exponentialRampToValueAtTime(.0001,n+d);o.connect(g);g.connect(AC.destination);o.start(n);o.stop(n+d)}catch(e){}}
+const sfx={tick:()=>tone(660,.07,'triangle',.04),win:()=>[523,659,784,1047].forEach((f,i)=>setTimeout(()=>tone(f,.25,'sine',.07),i*120)),ping:()=>{tone(880,.12);setTimeout(()=>tone(1175,.15),110)}};
+const mb=$('muteBtn');mb.textContent=muted?'🔇':'🔊';
+mb.onclick=()=>{muted=!muted;mb.textContent=muted?'🔇':'🔊';try{localStorage.setItem('mute',muted?'1':'0')}catch(e){}if(!muted)sfx.tick()};
+document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('button,a')&&e.target!==mb)sfx.tick()},true);
+function confetti(){if(RM)return;const c=document.createElement('canvas');c.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99999';c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);const x=c.getContext('2d'),P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:Math.random()*4-2,vy:2+Math.random()*4,r:5+Math.random()*6,a:Math.random()*6,h:Math.floor(Math.random()*360)}));let f=0;(function L(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.a+=.15;x.fillStyle='hsl('+p.h+',90%,60%)';x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillRect(-p.r/2,-p.r/2,p.r,p.r*.6);x.restore()});if(++f<220)requestAnimationFrame(L);else c.remove()})()}
+/* كشف الفوز ودورك */
+const gb=$('gameBody');let armW=false,armT=false,tm=0;
+if(gb)new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(()=>{const s=gb.innerText||'';
+const w=/فزت|الفوز لك|أحسنت|صحيح|🏆/.test(s)&&!/فاز البوت|خسرت/.test(s);
+if(w&&!armW){armW=true;sfx.win();confetti();navigator.vibrate&&navigator.vibrate([60,40,60])}if(!w)armW=false;
+const t=/دورك الآن/.test(s);if(t&&!armT){armT=true;sfx.ping();navigator.vibrate&&navigator.vibrate(80)}if(!t)armT=false},150)}).observe(gb,{childList:true,subtree:true,characterData:true});
+/* إبقاء الشاشة مضاءة أثناء اللعب (مهم للمضيف) */
+let wl=null,isOpen=false;async function lock(){try{if('wakeLock' in navigator)wl=await navigator.wakeLock.request('screen')}catch(e){}}
+document.addEventListener('visibilitychange',()=>{if(isOpen&&document.visibilityState==='visible')lock()});
+const oo=window.openGame,oc=window.closeGame;
+if(oo)window.openGame=function(){isOpen=true;lock();return oo.apply(this,arguments)};
+if(oc)window.closeGame=function(){isOpen=false;try{wl&&wl.release()}catch(e){}return oc.apply(this,arguments)};
+/* زر ملء الشاشة */
+const row=document.querySelector('#play .row');
+if(row&&document.documentElement.requestFullscreen){const b=document.createElement('button');b.className='btn';b.textContent='⛶ ملء الشاشة';b.onclick=()=>{document.fullscreenElement?document.exitFullscreen():$('play').requestFullscreen()};row.insertBefore(b,row.lastElementChild)}
+/* تحذير قبل مغادرة غرفة نشطة */
+addEventListener('beforeunload',e=>{if(isOpen&&gb&&/كود الغرفة/.test(gb.innerText||'')){e.preventDefault();e.returnValue=''}});
+})();
+</script>
+</body></html>
